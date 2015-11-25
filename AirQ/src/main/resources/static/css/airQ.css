@@ -1,0 +1,117 @@
+@CHARSET "UTF-8";
+
+
+@import url(https://fonts.googleapis.com/css?family=RobotoDraft&lang=en);
+
+ng-md-icon {
+         fill: white;
+         -webkit-transition: fill 750ms ease-in-out;
+         -moz-transition: fill 750ms ease-in-out;
+         -o-transition: fill 750ms ease-in-out;
+         transition: fill 750ms ease-in-out;
+     }
+     
+ng-md-icon > svg {
+         -webkit-transition: width 750ms ease-in-out, height 750ms ease-in-out;
+         -moz-transition: width 750ms ease-in-out, height 750ms ease-in-out;
+         -o-transition: width 750ms ease-in-out, height 750ms ease-in-out;
+         transition: width 750ms ease-in-out, height 750ms ease-in-out;
+}
+
+body {
+	background-color: #F2F2F2
+}
+
+.airQ-link-list {
+	float: right;
+    list-style-type: none;
+    margin: 0;
+    padding: 20px 200px 20px 0px;
+   	
+}
+
+.airQ-icons-list {
+	list-style-type: none;
+	margin: 0;
+	padding: 1% 1% 2% 40%;
+}
+
+.airQ-icons-list-item {
+	display: inline;
+	padding-left:1%;
+}
+
+.airQ-link-list-item {
+	display: inline;
+	padding: 0 20px 0 20px;
+}
+
+.airQ-navigationBar {
+	background-color: rgba(56, 56, 56, 1);
+}
+
+.airQ-logo-text {
+	padding-left: 35%;
+	padding-bottom: 1%;
+}
+
+.airQ-logo-text-size {
+	font-weight:bold;
+	font-size: 65px; !important
+}
+
+#map{
+	width:100%;
+	height:480px;
+}
+
+.airQ-averageScale-list {
+	font-size: 11px; 
+	list-style-type: none;
+    margin: 0;
+    padding: 2% 0 2% 18%; 
+    
+}
+
+.airQ-square {
+	border:1px solid #d3d3d3;  
+	width:10px; 
+	height:10px;
+}
+
+.airQ-square-good {
+	background-color: green; 
+}
+
+.airQ-square-moderate {
+	background-color: yellow;
+}
+
+.airQ-square-unHealthy {
+	background-color: #FF9966;
+}
+.airQ-square-veryUnHealthy {
+	background-color: #CC0033;
+}
+.airQ-square-hazardous {
+	background-color: #A00000;
+}
+.airQ-square-emergency {
+	background-color: #A02C7F;
+}
+
+.airQ-padding-top-15 {
+	padding-top: 15px;
+}
+
+.airQ-padding-left-40 {
+	padding-left:40px;
+}
+
+#footer {
+	background-color: #383838; 
+}
+
+#linkedin-box:hover {
+	background-color: blue;
+}
