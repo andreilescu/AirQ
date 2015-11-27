@@ -2,15 +2,19 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Air Quality Project</title>
 <!-- <script src="js/angular-bootstrap.js" type="text/javascript"></script> -->
 <script src="js/angular-bootstrap.js" type="text/javascript"></script>
-<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+<script
+	src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/angular-material-icons/0.6.0/angular-material-icons.min.js"></script>
+<script
+	src="http://cdnjs.cloudflare.com/ajax/libs/angular-material-icons/0.6.0/angular-material-icons.min.js"></script>
 
 <script type="text/javascript" src="app.js"></script>
 <script src="partials/map/map.controller.js"></script>
+<script src="partials/utils/menu.controller.js"></script>
 <link href="css/angular-bootstrap.css" rel="stylesheet">
 <link rel="stylesheet" href="css/airQ.css">
 </head>
@@ -18,43 +22,98 @@
 
 <body ng-app="airQ">
 
-	<div class="container"">
-		<div class="collapse navbar-collapse" id="userNavbar">
-			<ul class="nav navbar-nav navbar-right">
-				<li class="pull-left" style="margin-top: 2px;"><span
-					style="font-weight: 100; opacity: 0.6; font-size: 13px;">Welcome
-						back </span> 
-						<span
-					style="font-weight: bold; margin-left: 5px; opacity: 0.6; font-size: 13px;">Andrei Lescu</span></li>
-				</ul>
-		</div>
-	</div>
-	
-	<div class="airQ-navigationBar">
+	<nav id="userLoginPanel" class="airQ-userLogin-panel">
 		<div class="container">
-			<ul class="airQ-link-list" > 
-				<li class="airQ-link-list-item"><a href="">Stations		</a></li>
-				<li class="airQ-link-list-item"><a href="">Reports		</a></li>
-				<li class="airQ-link-list-item"><a href="">News			</a></li>
-				<li class="airQ-link-list-item"><a href="">Contact Us	</a></li>
-				<li class="airQ-link-list-item"><a href="">About Me		</a></li>	
-			</ul>
+			<div class="collapse navbar-collapse" id="userNavbar">
+				<ul class="nav navbar-nav navbar-right">
+					<li class="pull-left" style="margin-top: 2px;"><span
+						style="font-weight: 0.8; opacity: 1; font-size: 13px;">Welcome
+							back</span> <span
+						style="font-weight: bold; margin-left: 5px; opacity: 0.6; font-size: 13px;">Andrei
+							Lescu</span></li>
+					<li>
+						<button class="pull-left btn-default airQ-logoutButton">Logout</button>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div class="airQ-navigationBar">
+	
+		<script type="text/javascript">
+			function doMenu() {
+				var tmp = document.getElementById("mobileMenuList");
+				if (tmp != null && tmp.style.zIndex == -1) {
+					tmp.style.zIndex = 1;
+				} else {
+					tmp.style.zIndex = -1;
+				}
+			}
+		</script>
+	
+		<div class="container">
+			<!-- class="airQ-logo-text airQ-logo-text-size" -->
+			<div id="containsAll" style="width: 100%; float: left">
+
+				<div id="logoItemDiv" style="width: 30%; float: left;">
+					<span style="color: white">AirQ. </span>
+				</div>
+
+				<div id="menuItems" style="width: 70% float: left;">
+					<div id="menuDesktop">
+						<ul>
+							<li class="airQ-link-list-item"><a href="">Stations </a></li>
+							<li class="airQ-link-list-item"><a href="">Reports </a></li>
+							<li class="airQ-link-list-item"><a href="">News </a></li>
+							<li class="airQ-link-list-item"><a href="">Contact Us </a></li>
+							<li class="airQ-link-list-item"><a href="">About Me </a></li>
+						</ul>
+					</div>
+					<div id="menuMobile">
+						<ul>
+							<li>
+								<a class="menu-link" href="#menuDesktop" onclick="doMenu()">
+									<ng-md-icon icon="menu" size="36"></ng-md-icon>
+								</a>
+						
+								<div id="mobileMenuList" class="airQ-mobileMenuDiv" ng-controller="menuController">
+									<ul class = "airQ-mobileMenuList">
+										<li class="airQ-mobileMenuList-item"><a ng-class="getClass('/mapIndex')" href="/#/mapIndex">Stations</a></li>
+										<li class="airQ-mobileMenuList-item"><a href="">Reports</a></li>
+										<li class="airQ-mobileMenuList-item"><a href="">News</a></li>
+										<li class="airQ-mobileMenuList-item"><a href="">Contact Us</a></li>
+										<li class="airQ-mobileMenuList-item"><a href="">About Me</a></li>
+									</ul>
+								</div>
+							
+							</li>
+						</ul>
+					</div>
+					
+				</div>
+			</div>
 		</div>
 	</div>
-	
-<!--  main content-->
+
+	<!--  main content-->
 	<div id="main">
-		<div ng-view></div>	
+		<div ng-view></div>
 	</div>
 
 	<div id="footer">
 		<div class="container">
-			<ul class="airQ-icons-list" > 
-				<li class="airQ-icons-list-item"><a href="https://www.facebook.com/andrei.lescu"  target="_blank"><ng-md-icon id="facebook-box" icon="facebook-box" size="24"></ng-md-icon></a></li>
-				<li class="airQ-icons-list-item"><a href="https://plus.google.com/"  target="_blank"><ng-md-icon id="google-plus-box" icon="google-plus-box" size="24"></ng-md-icon></a></li>
-				<li class="airQ-icons-list-item"><a id="linkedin-box" href="https://www.linkedin.com/profile/view?id=AAMAAA7FvFABhm9FoYDjGvaNqeztsK9sP9OGmiI&trk=hp-identity-photo"  target="_blank"><ng-md-icon ng-attr-style="fill:lightgreen" icon="linkedin-box" size="24"></ng-md-icon></a></li>
+			<ul class="airQ-icons-list">
+				<li class="airQ-icons-list-item"><a
+					href="https://www.facebook.com/andrei.lescu" target="_blank"><ng-md-icon
+							id="facebook-box" icon="facebook-box" size="24"></ng-md-icon></a></li>
+				<li class="airQ-icons-list-item"><a
+					href="https://plus.google.com/" target="_blank"><ng-md-icon
+							id="google-plus-box" icon="google-plus-box" size="24"></ng-md-icon></a></li>
+				<li class="airQ-icons-list-item"><a id="linkedin-box"
+					href="https://www.linkedin.com/profile/view?id=AAMAAA7FvFABhm9FoYDjGvaNqeztsK9sP9OGmiI&trk=hp-identity-photo"
+					target="_blank"><ng-md-icon icon="linkedin-box" size="24"></ng-md-icon></a></li>
 			</ul>
 		</div>
 	</div>
-</body>   
+</body>
 </html>
