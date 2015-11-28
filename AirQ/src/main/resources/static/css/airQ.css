@@ -53,15 +53,19 @@ body {
 		text-decoration: none;
 	}
 	
-	a:active {
-		color: yellow !important;
-	/* 	text-decoration: none; */
-	}
-	
 	li:hover a {
 		color: white;
 		text-decoration: none;
 		background-color: rgba(56, 56, 56, 0.5);
+	}
+	
+	.active {
+		background-color: #F2F2F2;
+		color: red;
+	}
+	
+	.active a{ 
+		 color: rgba(56, 56, 56, 1);
 	}
 }
 
