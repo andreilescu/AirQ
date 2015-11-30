@@ -9,6 +9,12 @@ angular.module('airQ', ['ngRoute','ngMdIcons'])
 				}).when('/stations', {
 					controller : 'stationsController',
 					templateUrl: 'partials/stations/listStations.html'
+				}).when('/report', {
+					controller : 'reportController',
+					templateUrl: 'partials/report/report.html'
+				}).when('/aboutMe', {
+					controller : 'aboutMeController',
+					templateUrl: 'partials/about/aboutMe.html'
 				}).otherwise({
 					redirectTo : '/mapIndex'
 				});

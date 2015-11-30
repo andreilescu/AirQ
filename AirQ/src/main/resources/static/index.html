@@ -14,6 +14,7 @@
 
 <script type="text/javascript" src="app.js"></script>
 <script src="partials/map/map.controller.js"></script>
+<script src="partials/aboutMe/aboutMe.controller.js"></script>
 <script src="partials/utils/menu.controller.js"></script>
 <link href="css/angular-bootstrap.css" rel="stylesheet">
 <link rel="stylesheet" href="css/airQ.css">
@@ -38,46 +39,43 @@
 			</div>
 		</div>
 	</nav>
-	<div class="airQ-navigationBar">	
+	<div class="airQ-navigationBar" ng-controller="menuController">	
 		<div class="container">
 			<!-- class="airQ-logo-text airQ-logo-text-size" -->
 			<div id="containsAll" style="width: 100%; float: left">
 
 				<div id="logoItemDiv" style="width: 30%; float: left;">
-					<span style="color: white">AirQ. </span>
+					<span style="color: white; font-size: 3em;">AirQ. </span>
 				</div>
-
 				<div id="menuItems" style="width: 70% float: left;">
 					<div id="menuDesktop">
 						<ul>
-							<li class="airQ-link-list-item"><a href="">Stations </a></li>
-							<li class="airQ-link-list-item"><a href="">Reports </a></li>
+							<li class="airQ-link-list-item"><a href="/#/mapIndex">Stations </a></li>
+							<li class="airQ-link-list-item"><a href="/#/report">Reports </a></li>
 							<li class="airQ-link-list-item"><a href="">News </a></li>
 							<li class="airQ-link-list-item"><a href="">Contact Us </a></li>
-							<li class="airQ-link-list-item"><a href="">About Me </a></li>
+							<li class="airQ-link-list-item"><a href="/#/aboutMe">About Me </a></li>
 						</ul>
 					</div>
-					<div id="menuMobile" ng-controller="menuController">
+					<div id="menuMobile">
 						<a class="menu-link" href="" ng-click="showMobileMenu()">
-							<ng-md-icon ng-show="showMobileIcon" icon="menu" size="36"></ng-md-icon>
-							<ng-md-icon ng-hide="showMobileIcon" icon="close" size="36"></ng-md-icon>
+							<ng-md-icon ng-show="showMobileIcon" icon="menu" size="42"></ng-md-icon>
+							<ng-md-icon ng-hide="showMobileIcon" icon="close" size="42"></ng-md-icon>
 						</a>
-						
-						
-				
-						<div id="mobileMenuList" style="position: fixed;top: 36px;left: 0;right: 0;background-color: rgba(56, 56, 56, 0.85);z-index: -1;width: 100%;">
-							<ul class = "airQ-mobileMenuList">		 
-								<li class="airQ-mobileMenuList-item" ng-class="{'active' :isActive('/mapIndex')}"><a href="/#/mapIndex">Stations</a></li>
-								<li class="airQ-mobileMenuList-item"><a href="">Reports</a></li>
-								<li class="airQ-mobileMenuList-item"><a href="">News</a></li>
-								<li class="airQ-mobileMenuList-item"><a href="">Contact Us</a></li>
-								<li class="airQ-mobileMenuList-item"><a href="">About Me</a></li>
-							</ul>
-						</div>
 					</div>
-					
 				</div>
-			</div>
+			</div>	
+		</div>
+		<div style="width: 100%; float: left">
+				<div ng-show="showMobileMenuDiv" id="mobileMenuList" style="left: 0;right: 0;background-color: rgba(56, 56, 56, 0.85); width: 100%; margin:0;">
+					<ul class = "airQ-mobileMenuList" style="margin:0;">		 
+						<li class="airQ-mobileMenuList-item" ng-class="{'active' :isActive('/mapIndex')}"><a href="/#/mapIndex">Stations</a></li>
+						<li class="airQ-mobileMenuList-item" ng-class="{'active' :isActive('/report')}"> <a href="/#/report">Reports</a></li>
+						<li class="airQ-mobileMenuList-item"><a href="">News</a></li>
+						<li class="airQ-mobileMenuList-item"><a href="">Contact Us</a></li>
+						<li class="airQ-mobileMenuList-item" ng-class="{'active' :isActive('/aboutMe')}"><a href="/#/aboutMe">About Me</a></li>
+					</ul>
+				</div>
 		</div>
 	</div>
 
