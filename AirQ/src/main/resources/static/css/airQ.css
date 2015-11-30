@@ -191,3 +191,11 @@ body {
 #footer {
 	background-color: #383838;
 }
+
+.airQ-fotoBackgroung {
+	width: 		300px;
+	height: 	300px;
+	float: 		right;
+	margin: 	2% 2%;
+	background-image:url(../img/AndreiLescu.jpg);
+}
