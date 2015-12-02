@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Air Quality Project</title>
-<!-- <script src="js/angular-bootstrap.js" type="text/javascript"></script> -->
 <script src="js/angular-bootstrap.js" type="text/javascript"></script>
 <script
 	src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
@@ -49,13 +48,24 @@
 				</div>
 				<div id="menuItems" style="width: 70% float: left;">
 					<div id="menuDesktop">
-						<ul>
-							<li class="airQ-link-list-item"><a href="/#/mapIndex">Stations </a></li>
-							<li class="airQ-link-list-item"><a href="/#/report">Reports </a></li>
-							<li class="airQ-link-list-item"><a href="">News </a></li>
-							<li class="airQ-link-list-item"><a href="">Contact Us </a></li>
-							<li class="airQ-link-list-item"><a href="/#/aboutMe">About Me </a></li>
-						</ul>
+						<div class="airQ-flex-container">
+								<div class="airQ-flex-item" ng-class="{'active' :isActive('/mapIndex')}">
+									<a class="airQ-menuItemColor" href="/#/mapIndex">Stations </a>
+								 	<div style="width: 50%; margin-left: 25%;" ng-class="{'airQ-menuItem-selected' :isActive('/mapIndex')}">
+									</div>
+								</div>
+								<div class="airQ-flex-item" ng-class="{'active' :isActive('/report')}">
+								<a class="airQ-menuItemColor" href="/#/report">Reports </a>
+									<div style="width: 50%; margin-left: 25%;" ng-class="{'airQ-menuItem-selected' :isActive('/report')}">
+									</div>
+								</div>
+								<div class="airQ-flex-item"><a class="airQ-menuItemColor" href="">News </a></div>
+								<div class="airQ-flex-item"><a class="airQ-menuItemColor" href="">Contact Us </a></div>
+								<div class="airQ-flex-item"  ng-class="{'active' :isActive('/aboutMe')}"><a class="airQ-menuItemColor" href="/#/aboutMe">About Me </a>
+									<div style="width: 50%; margin-left: 25%;" ng-class="{'airQ-menuItem-selected' :isActive('/aboutMe')}">
+									</div>
+								</div>
+						</div>
 					</div>
 					<div id="menuMobile">
 						<a class="menu-link" href="" ng-click="showMobileMenu()">
