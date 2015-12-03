@@ -13,7 +13,9 @@
 
 <script type="text/javascript" src="app.js"></script>
 <script src="partials/map/map.controller.js"></script>
-<script src="partials/aboutMe/aboutMe.controller.js"></script>
+<script src="partials/blog/blog.controller.js"></script>
+<script src="partials/about/aboutMe.controller.js"></script>
+<script src="js/directive/resize.directive.js"></script>
 <script src="partials/utils/menu.controller.js"></script>
 <link href="css/angular-bootstrap.css" rel="stylesheet">
 <link rel="stylesheet" href="css/airQ.css">
@@ -50,18 +52,35 @@
 					<div id="menuDesktop">
 						<div class="airQ-flex-container">
 								<div class="airQ-flex-item" ng-class="{'active' :isActive('/mapIndex')}">
-									<a class="airQ-menuItemColor" href="/#/mapIndex">Stations </a>
-								 	<div style="width: 50%; margin-left: 25%;" ng-class="{'airQ-menuItem-selected' :isActive('/mapIndex')}">
+									<div class="airQ-menuItem-div">
+										<a class="airQ-menuItemColor" href="/#/mapIndex">Stations </a>
+									</div>	
+									<div style="width: 50%; margin-left: 25%;" ng-class="{'airQ-menuItem-selected' :isActive('/mapIndex')}">
 									</div>
 								</div>
 								<div class="airQ-flex-item" ng-class="{'active' :isActive('/report')}">
-								<a class="airQ-menuItemColor" href="/#/report">Reports </a>
+									<div class="airQ-menuItem-div">
+										<a class="airQ-menuItemColor" href="/#/report">Reports </a>
+									</div>
 									<div style="width: 50%; margin-left: 25%;" ng-class="{'airQ-menuItem-selected' :isActive('/report')}">
 									</div>
 								</div>
-								<div class="airQ-flex-item"><a class="airQ-menuItemColor" href="">News </a></div>
-								<div class="airQ-flex-item"><a class="airQ-menuItemColor" href="">Contact Us </a></div>
-								<div class="airQ-flex-item"  ng-class="{'active' :isActive('/aboutMe')}"><a class="airQ-menuItemColor" href="/#/aboutMe">About Me </a>
+								<div class="airQ-flex-item">
+									<div class="airQ-menuItem-div">
+										<a class="airQ-menuItemColor" href="">News </a>
+									</div>
+								</div>
+								<div class="airQ-flex-item" ng-class="{'active' :isActive('/blog')}">
+									<div class="airQ-menuItem-div">
+										<a class="airQ-menuItemColor" href="/#/blog">Blog </a>
+									</div>
+									<div style="width: 50%; margin-left: 25%;" ng-class="{'airQ-menuItem-selected' :isActive('/blog')}">
+									</div>
+								</div>
+								<div class="airQ-flex-item"  ng-class="{'active' :isActive('/aboutMe')}">
+									<div class="airQ-menuItem-div">
+										<a class="airQ-menuItemColor" href="/#/aboutMe">About Me </a>
+									</div>
 									<div style="width: 50%; margin-left: 25%;" ng-class="{'airQ-menuItem-selected' :isActive('/aboutMe')}">
 									</div>
 								</div>
