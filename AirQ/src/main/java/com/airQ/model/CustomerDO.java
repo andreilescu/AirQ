@@ -1,7 +1,12 @@
 package com.airQ.model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -21,6 +26,12 @@ public class CustomerDO extends BasicEntityDO {
 
 	@Column(name = "EMAIL")
 	private String email;
+	
+	@OneToMany(
+			cascade = CascadeType.ALL,
+			fetch = FetchType.LAZY,
+			mappedBy = "customer")
+	private List<BlogDO> blogs;
 
 	public String getFirstName() {
 		return firstName;
@@ -46,10 +57,19 @@ public class CustomerDO extends BasicEntityDO {
 		this.email = email;
 	}
 
+	public List<BlogDO> getBlogs() {
+		return blogs;
+	}
+
+	public void setBlogs(List<BlogDO> blogs) {
+		this.blogs = blogs;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
+		result = prime * result + ((blogs == null) ? 0 : blogs.hashCode());
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
 		result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
@@ -65,6 +85,11 @@ public class CustomerDO extends BasicEntityDO {
 		if (getClass() != obj.getClass())
 			return false;
 		CustomerDO other = (CustomerDO) obj;
+		if (blogs == null) {
+			if (other.blogs != null)
+				return false;
+		} else if (!blogs.equals(other.blogs))
+			return false;
 		if (email == null) {
 			if (other.email != null)
 				return false;
@@ -85,6 +110,7 @@ public class CustomerDO extends BasicEntityDO {
 
 	@Override
 	public String toString() {
-		return "CustomerDO [firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + "]";
+		return "CustomerDO [firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + ", blogs=" + blogs
+				+ "]";
 	}
 }
