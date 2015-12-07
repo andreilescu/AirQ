@@ -1,0 +1,2 @@
+INSERT INTO CUSTOMER (ID, FIRSTNAME, LASTNAME, EMAIL) VALUES (1, 'Anna', 'Boros', 'anna.boros@dialogdata.de');
+INSERT INTO CUSTOMER (ID, FIRSTNAME, LASTNAME, EMAIL) VALUES (2, 'Razvan', 'Mitrica', 'razvan.mitrica@dialogdata.de');
