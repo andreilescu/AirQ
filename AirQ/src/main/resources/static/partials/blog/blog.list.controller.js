@@ -3,11 +3,11 @@
 	
 	angular
 		.module('airQ')
-		.controller('blogController', blogController);
+		.controller('blogListController', blogListController);
 	
-	blogController.$inject = ['blogFactory'];
+	blogListController.$inject = ['blogFactory'];
  
-	function blogController(blogFactory) {
+	function blogListController(blogFactory) {
 		var vm = this;
 		
 		vm.loadBlogs = function() {

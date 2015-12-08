@@ -22,9 +22,9 @@
 			<p style="font-weight: bold; color: #777">{{blog.createdBy}} ON </p>
 			<p style="height: 100px;  overflow:hidden;">{{blog.description}}</p>
 
-			<button type="submit" class="btn btn-default"
-				style="position: relative; float: right;" href="#/detail.blog.html">Read More >
-			</button>
+
+			<a ng-href="/blog/{{blog.id}}"><button class="btn btn-default pull-right"
+			style="height: 50px;">Read More ></button></a>
 		</div>
 	</div>
 </div>

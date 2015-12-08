@@ -13,13 +13,13 @@ angular.module('airQ', ['ngRoute','ngMdIcons', 'ngResource'])
 					controller : 'reportController',
 					templateUrl: 'partials/report/report.html'
 				}).when('/blog', {
-					templateUrl: 'partials/blog/blog.html',
-					controller : 'blogController',
+					templateUrl: 'partials/blog/blog.list.html',
+					controller : 'blogListController',
 					controllerAs : 'vm'
 				}).when('/blog/:blogId', {
-					templateUrl: 'partials/blog/detail.blog.html',
-					controller : 'blogController',
-					controllerAs : 'vm'
+					templateUrl: 'partials/blog/blog.detail.html',
+					controller : 'blogDetailController',
+					controllerAs : 'dm'
 				}).when('/aboutMe', {
 					controller : 'aboutMeController',
 					templateUrl: 'partials/about/aboutMe.html'
