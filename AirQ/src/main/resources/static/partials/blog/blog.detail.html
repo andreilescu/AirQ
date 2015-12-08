@@ -1,28 +1,28 @@
-<div class="airQ-blogMedalion" style="width: 100%; float: left;">
+<div id="blogDetail" class="container" ng-style="style()" resize>
 
-	<div style="width: 100%; float: left;">
-<!-- 		<div class="et-main-image airQ-fotoBackgroungBlog"
+	<div class="container">
+			<div class="et-main-image airQ-fotoBackgroungBlog"
 			style="width: 20%; float: left;">
 			<a href=""></a>
 
 			<div class="meta-info">
 				<div class="meta-date">
-					<span class="month">{{blog.createdDate}}</span>
+					<span class="month">{{vm.blog.createdDate}}</span>
 				</div>
 			</div>
-		</div> -->
+		</div>
 
 		<div style="width: 80%; float: left; padding: 0 2% 0 2%;">
 			<h2 style="font-weight: bold; font-size: 40px;">
 				<a class="airQ-blogTitle" href="">
-					{{blog.name}}
+					{{vm.blog.name}}
 				</a>
 			</h2>
-			<p style="font-weight: bold; color: #777">{{blog.createdBy}} ON </p>
-			<p>{{blog.description}}</p>
+			<p style="font-weight: bold; color: #777">{{vm.blog.createdBy}} ON </p>
+			<p>{{vm.blog.description}}</p>
 
-			<input type="button" class="btn" value="< Back to Blog"
-				style="position: relative; float: right;">		
+
+			<a href="#/blog" class="btn btn-default pull-right" > < Back to Blog</a>
 		</div>
 	</div>
 </div>

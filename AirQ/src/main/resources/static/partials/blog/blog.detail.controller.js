@@ -5,15 +5,16 @@
 		.module('airQ')
 		.controller('blogDetailController', blogDetailController);
 	
-	blogDetailController.$inject = ['blogFactory'];
+	blogDetailController.$inject = ['$routeParams', 'blogFactory'];
  
-	function blogDetailController(blogFactory) {
+	function blogDetailController($routeParams, blogFactory) {
 		var vm = this;
 		
 		vm.loadBlog = function() {
-			blogFactory.all.get({}, function success(data) {
-				vm.blogs = data;
-			})
+			console.log($routeParams);
+			blogFactory.oneById.get({id:$routeParams.blogId}, function success(data) {
+				vm.blog = data;
+			});
 		}
 
 	vm.loadBlog();

@@ -7,7 +7,13 @@ angular.module('airQ')
 					all: 	$resource('blog', {}, 
 								{
 									'get':	{method: 'GET', isArray: true}  
-								})
+								}
+					),
+					oneById: $resource('blog/:id', {id: '@id'}, 
+								{
+									'get': {method: 'GET'}
+								}
+					)
 				}
 			}                 
 ]);
