@@ -8,4 +8,6 @@ public interface BlogService {
 	List<BlogDO> getAll();
 	
 	BlogDO getBlog(Integer id);
+	
+	BlogDO createBlog(BlogDO blog);
 }

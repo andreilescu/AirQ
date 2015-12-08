@@ -13,6 +13,11 @@ angular.module('airQ')
 								{
 									'get': {method: 'GET'}
 								}
+					),
+					one:	$resource('blog/', {},
+								{
+									'save': {method: 'POST'}
+								}
 					)
 				}
 			}                 
