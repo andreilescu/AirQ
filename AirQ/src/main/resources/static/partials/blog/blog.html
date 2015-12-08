@@ -1,8 +1,9 @@
-<div id="blog" style="background-color: #F2F2F2">
-	<div class="container">
+<div id="blog" ng-style="style()" resize>
+	<div class="container" style="position: relative;">
 		<input class="airQ-input-search ng-pristine ng-valid ng-touched" 
 		style="background: url(img/search.png) no-repeat scroll 528px 13px; margin: 2% 0 0 5%;">
-		
-		<div ng-include="'partials/blog/blogMedalion.html'"></div>
+		<div ng-repeat="blog in vm.blogs">
+			<div ng-include="'partials/blog/blogMedalion.html'"></div>
+		</div>	
 	</div>
 </div>

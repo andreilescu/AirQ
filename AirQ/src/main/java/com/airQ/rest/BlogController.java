@@ -1,6 +1,5 @@
 package com.airQ.rest;
 
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,19 +8,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.airQ.model.CustomerDO;
-import com.airQ.service.api.CustomerService;
+import com.airQ.model.BlogDO;
+import com.airQ.service.api.BlogService;
 
 @RestController
-@RequestMapping(value="customer")
-public class CustomerController {
-	
-	@Autowired
-	private CustomerService customerService;
-	
-	@RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public List<CustomerDO> getAll () {
-		return customerService.getAll();
-	}
+@RequestMapping(value = "blog")
+public class BlogController {
 
+	@Autowired
+	private BlogService blogService;
+
+	@RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<BlogDO> getAll() {
+		return blogService.getAll();
+	}
 }

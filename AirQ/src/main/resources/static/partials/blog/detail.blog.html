@@ -1,14 +1,14 @@
 <div class="airQ-blogMedalion" style="width: 100%; float: left;">
 
 	<div
-		style="padding: 3% 3%; width: 100%; float: left; box-shadow: 10px 10px 15px #777;">
+		style="width: 100%; float: left;">
 		<div class="et-main-image airQ-fotoBackgroungBlog"
 			style="width: 20%; float: left;">
-			<a href=""> </a>
+			<a href=""></a>
 
 			<div class="meta-info">
 				<div class="meta-date">
-					<span class="month"> {{blog.createdDate}} </span>
+					<span class="month">{{blog.createdDate}}</span>
 				</div>
 			</div>
 		</div>
@@ -20,11 +20,10 @@
 				</a>
 			</h2>
 			<p style="font-weight: bold; color: #777">{{blog.createdBy}} ON </p>
-			<p style="height: 100px;  overflow:hidden;">{{blog.description}}</p>
+			<p>{{blog.description}}</p>
 
-			<button type="submit" class="btn btn-default"
-				style="position: relative; float: right;" href="#/detail.blog.html">Read More >
-			</button>
+			<input type="button" class="btn" value="< Back to Blog"
+				style="position: relative; float: right;">		
 		</div>
 	</div>
 </div>

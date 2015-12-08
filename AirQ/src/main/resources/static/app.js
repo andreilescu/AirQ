@@ -1,5 +1,5 @@
 'use strict';
-angular.module('airQ', ['ngRoute','ngMdIcons'])
+angular.module('airQ', ['ngRoute','ngMdIcons', 'ngResource'])
 	.config(function($routeProvider) {
 				$routeProvider.when('/', {
 					redirectTo : '/mapIndex'
@@ -13,8 +13,13 @@ angular.module('airQ', ['ngRoute','ngMdIcons'])
 					controller : 'reportController',
 					templateUrl: 'partials/report/report.html'
 				}).when('/blog', {
+					templateUrl: 'partials/blog/blog.html',
 					controller : 'blogController',
-					templateUrl: 'partials/blog/blog.html'
+					controllerAs : 'vm'
+				}).when('/blog/:blogId', {
+					templateUrl: 'partials/blog/detail.blog.html',
+					controller : 'blogController',
+					controllerAs : 'vm'
 				}).when('/aboutMe', {
 					controller : 'aboutMeController',
 					templateUrl: 'partials/about/aboutMe.html'
