@@ -3,6 +3,8 @@
 		<input class="airQ-input-search ng-pristine ng-valid ng-touched" 
 		style="background: url(img/search.png) no-repeat scroll 528px 13px; margin: 2% 0 0 5%;">
 		
+		<a class="btn btn-info" ng-href="#/blog/add" role="button">+ Add blog</a>
+		
 		<div ng-repeat="blog in vm.blogs">
 			<div ng-include="'partials/blog/blogMedalion.html'"></div>
 		</div>	

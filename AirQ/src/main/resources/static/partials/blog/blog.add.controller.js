@@ -13,11 +13,11 @@
 			
 			vm.blog.customer = {};
 			vm.blog.customer.id = 1;
+			console.log("save data");
 			
 			blogFactory.one.save(vm.blog, function(data) {
 				console.log(data);
 			});
 		}
 	}
-	
 })();
