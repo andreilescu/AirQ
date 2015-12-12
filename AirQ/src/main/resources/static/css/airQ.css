@@ -272,7 +272,6 @@ a {
 	float: left;
 	background-image: url(../img/holidaySeason.png);
 } */
-
 .et-main-image {
 	float: left;
 	position: relative;
@@ -316,7 +315,7 @@ a {
 }
 
 .airQ-blogTitle:hover {
-	color:#777;
+	color: #777;
 	text-decoration: none;
 	cursor: pointer;
 }
@@ -327,4 +326,13 @@ a {
 	background-color: white !important;
 	color: black;
 	border: 1px solid #fff;
+}
+
+.airQ-blogButton{
+	border: 0;
+	width: 15%;
+}
+
+.airQ-blogButton-margin {
+	margin: 0 0.5% 0 -2%;
 }
