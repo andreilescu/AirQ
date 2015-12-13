@@ -6,17 +6,18 @@ angular.module('airQ')
 				return {
 					all: 	$resource('blog', {}, 
 								{
-									'get':	{method: 'GET', isArray: true}  
+									'get':		{method: 'GET', isArray: true}  
 								}
 					),
 					oneById: $resource('blog/:id', {id: '@id'}, 
 								{
-									'get': {method: 'GET'}
+									'get': 		{method: 'GET'}
 								}
 					),
 					one:	$resource('blog/', {},
 								{
-									'save': {method: 'POST'}
+									'save': 	{method: 'POST'},
+									'update':	{method: 'PUT'}
 								}
 					)
 				}

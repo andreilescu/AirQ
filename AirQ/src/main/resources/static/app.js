@@ -20,7 +20,7 @@ angular.module('airQ', ['ngRoute','ngMdIcons', 'ngResource'])
 					templateUrl: 'partials/blog/blog.list.html',
 					controller : 'blogListController',
 					controllerAs : 'vm'
-				}).when('/blog/:blogId', {
+				}).when('/customer/:customerId/blog/:blogId', {
 					templateUrl: 'partials/blog/blog.detail.html',
 					controller : 'blogDetailController',
 					controllerAs : 'vm'

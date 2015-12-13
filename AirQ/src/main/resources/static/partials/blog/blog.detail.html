@@ -1,28 +1,52 @@
 <div id="blogDetail" class="container" ng-style="style()" resize>
 
-	<div class="container">
-			<div class="et-main-image airQ-fotoBackgroungBlog"
-			style="width: 20%; float: left;">
-			<a href=""></a>
+	<div class="container" style="padding: 20px;">
 
-			<div class="meta-info">
-				<div class="meta-date">
-					<span class="month">{{vm.blog.createdDate}}</span>
+		<div class="row">
+			<div id="readOnlyDiv" ng-hide="vm.isEditable">
+				<div class="col-md-3 et-main-image airQ-fotoBackgroungBlog"">
+					<a href=""></a>
+					<div class="meta-info">
+						<div class="meta-date">
+							<span class="month">03 Dec {{vm.blog.createdDate}}</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-9">
+					<div class="airQ-blogTitle-addPage"
+						style="background-color: white;">
+						<a class="airQ-blogTitle" href=""> {{vm.blog.name}} </a>
+					</div>
+					<p style="font-weight: bold; color: #777">{{vm.blog.createdBy}}
+						Created on</p>
+					<div class="airQ-blogTextArea-editPage-default" style="background-color: white;">{{vm.blog.description}}</div>
+
+					<a href="#/blog" class="btn btn-default airQ-blogButton"> <
+						Back to Blog</a> <a href="" class="btn btn-default airQ-blogButton"
+						ng-click="vm.enableEditBlog()"> Edit</a>
+				</div>
+			</div>
+			
+			<div id="editableDiv" ng-show="vm.isEditable">
+				<div class="col-md-3 airQ-photoArea-addPage">
+					<span>Upload a photo</span>
+				</div>
+	
+				<div class="col-md-9">
+					<input class="col-md-12 airQ-blogTitle-addPage"
+					ng-model="vm.blog.name">
+		
+					<textarea class="col-md-12 airQ-blogTextArea-editPage airQ-marginTop-1" 
+					ng-model="vm.blog.description"></textarea>
+					
+					<div class="col-md-12 airQ-marginTop-1">
+						<a href="#/blog" class="btn btn-default airQ-blogButton airQ-blogButton-margin">
+						< Back to Blog</a> 
+						<a href="#/blog" class="btn btn-default airQ-blogButton" ng-click="vm.editBlog()">
+						Save</a>
+					</div>
 				</div>
 			</div>
 		</div>
-
-		<div style="width: 80%; float: left; padding: 0 2% 0 2%;">
-			<h2 style="font-weight: bold; font-size: 40px;">
-				<a class="airQ-blogTitle" href="">
-					{{vm.blog.name}}
-				</a>
-			</h2>
-			<p style="font-weight: bold; color: #777">{{vm.blog.createdBy}} ON </p>
-			<p>{{vm.blog.description}}</p>
-
-
-			<a href="#/blog" class="btn btn-default pull-right" > < Back to Blog</a>
-		</div>
 	</div>
-</div>

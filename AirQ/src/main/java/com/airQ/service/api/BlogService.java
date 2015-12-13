@@ -2,12 +2,15 @@ package com.airQ.service.api;
 
 import java.util.List;
 
+import com.airQ.TOs.BlogTO;
 import com.airQ.model.BlogDO;
 
 public interface BlogService {
-	List<BlogDO> getAll();
+	List<BlogTO> getAll();
 	
-	BlogDO getBlog(Integer id);
+	BlogTO getBlog(Integer id);
 	
-	BlogDO createBlog(BlogDO blog);
+	BlogTO createBlog(BlogTO blog);
+	
+	BlogDO updateBlog(BlogDO blog);
 }

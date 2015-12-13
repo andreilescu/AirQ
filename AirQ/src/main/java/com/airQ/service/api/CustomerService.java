@@ -2,9 +2,11 @@ package com.airQ.service.api;
 
 import java.util.List;
 
-import com.airQ.model.CustomerDO;
+import com.airQ.TOs.CustomerTO;
 
 public interface CustomerService {
 
-	List<CustomerDO> getAll();
+	List<CustomerTO> getAll();
+	
+	CustomerTO getCustomer(Integer id);
 }

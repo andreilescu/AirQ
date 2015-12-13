@@ -20,8 +20,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
-public abstract class BasicEntityDO implements Serializable{
-	
+public abstract class BasicEntityDO implements Serializable
+{
+
 	/**
 	 * 
 	 */

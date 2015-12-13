@@ -328,11 +328,41 @@ a {
 	border: 1px solid #fff;
 }
 
-.airQ-blogButton{
+.airQ-photoArea-addPage {
+	background-color: white;
+	height: 300px;
+}
+
+.airQ-blogTitle-addPage {
+	font-weight: bold;
+	font-size: 40px;
+	border: 0;
+}
+
+.airQ-blogTextArea-addPage {
+	height: 250px;
+	border: 0;
+}
+
+.airQ-blogTextArea-editPage {
+	height: 340px;
+	border: 0;
+}
+
+.airQ-blogTextArea-editPage-default {
+	height: 330px;
+	border: 0;
+}
+
+.airQ-blogButton {
 	border: 0;
 	width: 15%;
 }
 
 .airQ-blogButton-margin {
 	margin: 0 0.5% 0 -2%;
+}
+
+.airQ-marginTop-1 {
+	margin-top: 1%;
 }

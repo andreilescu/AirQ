@@ -9,6 +9,8 @@ import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 @Table(name = "customer")
 public class CustomerDO extends BasicEntityDO {
@@ -27,6 +29,7 @@ public class CustomerDO extends BasicEntityDO {
 	@Column(name = "EMAIL")
 	private String email;
 	
+	@JsonManagedReference
 	@OneToMany(
 			cascade = CascadeType.ALL,
 			fetch = FetchType.LAZY,

@@ -19,11 +19,11 @@
 					{{blog.name}}
 				</a>
 			</h2>
-			<p style="font-weight: bold; color: #777">{{blog.createdBy}} ON </p>
+			<p style="font-weight: bold; color: #777">{{blog.customer.firstName}} {{blog.customer.lastName}} ON</p>
 			<p style="height: 100px;  overflow:hidden;">{{blog.description}}</p>
 
 
-			<a ng-href="#/blog/{{blog.id}}"><button class="btn btn-default pull-right"
+			<a ng-href="#/customer/{{blog.id}}/blog/{{blog.id}}"><button class="btn btn-default pull-right"
 			style="height: 50px;">Read More ></button></a>
 		</div>
 	</div>

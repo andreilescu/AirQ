@@ -13,19 +13,22 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 @Entity
 @Table(name = "Blog")
 public class BlogDO extends BasicEntityDO {
-
+	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	@Column(name = "NAME")
 	private String name;
 	
 	@Column(name = "DESCRIPTION", length = 5000)
 	private String description;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(
+			fetch = FetchType.EAGER,
+			optional = false
+			)
 	@JoinColumn(
 			name = "CUSTOMER_ID", 
 			referencedColumnName = "ID", 
