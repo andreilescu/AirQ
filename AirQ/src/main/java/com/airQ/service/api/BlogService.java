@@ -12,5 +12,7 @@ public interface BlogService {
 	
 	BlogTO createBlog(BlogTO blog);
 	
-	BlogDO updateBlog(BlogDO blog);
+	BlogTO updateBlog(BlogTO blog);
+	
+	void deleteBlog(Integer id);
 }

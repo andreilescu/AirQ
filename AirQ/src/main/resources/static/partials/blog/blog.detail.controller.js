@@ -23,13 +23,18 @@
 		
 		vm.editBlog = function () {
 			console.log(vm.blog);
-			vm.blog.customer = {};
-//			vm.blog.customer.id = $routeParams.
-			blogFactory.one.update({}, function success(data) {
+			blogFactory.one.update({}, vm.blog, function success(data) {
 				console.log("Blog successful updated !!!");
 			});
 		}
-
-	vm.loadBlog();
+		
+		vm.deleteBlog = function () {
+			console.log("remove blog");
+			blogFactory.oneById.delete({id:vm.blog.id}, function success(data) {
+				console.log("blog successeful removed");
+			});
+		}
+		
+		vm.loadBlog();
 	};
 })();

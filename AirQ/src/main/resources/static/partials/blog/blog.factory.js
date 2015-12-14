@@ -11,7 +11,8 @@ angular.module('airQ')
 					),
 					oneById: $resource('blog/:id', {id: '@id'}, 
 								{
-									'get': 		{method: 'GET'}
+									'get': 		{method: 'GET'},
+									'delete': 	{method: 'DELETE'}
 								}
 					),
 					one:	$resource('blog/', {},

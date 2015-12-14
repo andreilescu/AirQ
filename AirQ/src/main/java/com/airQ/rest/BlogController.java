@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.airQ.TOs.BlogTO;
-import com.airQ.model.BlogDO;
 import com.airQ.service.api.BlogService;
 
 @RestController
@@ -25,20 +24,28 @@ public class BlogController {
 	public List<BlogTO> getAll() {
 		return blogService.getAll();
 	}
-	
+
 	@RequestMapping(value = "{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public BlogTO getBlog(@PathVariable Integer id) {
 		return blogService.getBlog(id);
 	}
-	
+
 	@RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public BlogTO createBlog(@RequestBody BlogTO blog) {
 		return blogService.createBlog(blog);
 	}
-	
+
 	@RequestMapping(method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
-	public BlogDO updateBlog(@RequestBody BlogDO blog) {
+	public BlogTO updateBlog(@RequestBody BlogTO blog) {
 		return blogService.updateBlog(blog);
 	}
-}
 
+	@RequestMapping(
+			value = "{id}",
+			method = RequestMethod.DELETE, 
+			produces = MediaType.APPLICATION_JSON_VALUE
+			)
+	public void deleteBlog(@PathVariable Integer id) {
+		blogService.deleteBlog(id);
+	}
+}

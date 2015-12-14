@@ -53,7 +53,14 @@ public class BlogServiceImpl implements BlogService {
 	}
 
 	@Override
-	public BlogDO updateBlog(BlogDO blog) {
-		return blogRepository.save(blog);
+	public BlogTO updateBlog(BlogTO blogTO) {
+		BlogDO blogDO = blogRepository.findOne(blogTO.getId());
+		blogConverter.convertTOIntoEntity(blogTO, blogDO);
+		return blogConverter.convertEntityIntoTO(blogRepository.save(blogDO), blogTO);
+	}
+
+	@Override
+	public void deleteBlog(Integer id) {
+		blogRepository.delete(id);
 	}
 }
