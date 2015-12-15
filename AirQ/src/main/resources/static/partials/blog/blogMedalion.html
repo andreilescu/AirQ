@@ -1,34 +1,36 @@
 <div class="airQ-blogMedalion">
-<!--  style="width: 100%; float: left;" -->
-	<div
-		style="padding: 1.5% 3%; width: 100%; float: left; box-shadow: 10px 10px 15px #777;">
-		<div class="et-main-image airQ-fotoBackgroungBlog"
-			style="width: 20%; float: left;">
-			<a href=""> </a>
+	<div class="airQ-blogMedalion-div">
+		<div class="row">
+			<div class="col-md-3">
+				<div class="et-main-image airQ-fotoBackgroungBlog">
+					<a href=""> </a>
 
-			<div class="meta-info">
-				<div class="meta-date">
-					<span class="month"> {{blog.createdDate}} </span>
+					<div class="meta-info">
+						<div class="meta-date">
+							<span class="month"> {{blog.createdDate | date:'MMM dd'}}</span>
+						</div>
+					</div>
 				</div>
 			</div>
-		</div>
-
-		<div style="width: 80%; float: left; padding: 0 2% 0 2%;">
-			<h2 style="font-weight: bold; font-size: 35px;">
-				<a class="airQ-blogTitle" href="">
-					{{blog.name}}
+			<div class="col-md-9">
+				<div class="airQ-blogTitle">
+					<a class="airQ-blogTitle"
+						ng-href="#/customer/{{blog.id}}/blog/{{blog.id}}">
+						{{blog.name}} 
+					</a>
+				</div>
+				<span class="airQ-blogPostedBy">
+					POSTED BY {{blog.customer.firstName | uppercase}} {{blog.customer.lastName | uppercase}} ON {{blog.createdDate | date:'MMM dd yyyy'}}
+				</span>
+				<p class="airQ-blogDescription">
+					{{blog.description}}
+				</p>
+				<a ng-href="#/customer/{{blog.id}}/blog/{{blog.id}}">
+					<button class="btn btn-default pull-right airQ-blogReadMe-button">
+						Read More >
+					</button>
 				</a>
-			</h2>
-			<p style="font-weight: bold; color: #777">{{blog.customer.firstName}} {{blog.customer.lastName}} ON</p>
-			<p style="height: 100px;  overflow:hidden;">{{blog.description}}</p>
-
-
-			<a ng-href="#/customer/{{blog.id}}/blog/{{blog.id}}">
-				<button class="btn btn-default pull-right"
-				style="height: 30px; background-color: #ccc; color:white;">
-				Read More >
-				</button>
-			</a>
+			</div>
 		</div>
 	</div>
 </div>
