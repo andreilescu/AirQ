@@ -1,5 +1,5 @@
-<div class="airQ-blogMedalion" style="width: 100%; float: left;">
-
+<div class="airQ-blogMedalion">
+<!--  style="width: 100%; float: left;" -->
 	<div
 		style="padding: 1.5% 3%; width: 100%; float: left; box-shadow: 10px 10px 15px #777;">
 		<div class="et-main-image airQ-fotoBackgroungBlog"
@@ -14,7 +14,7 @@
 		</div>
 
 		<div style="width: 80%; float: left; padding: 0 2% 0 2%;">
-			<h2 style="font-weight: bold; font-size: 40px;">
+			<h2 style="font-weight: bold; font-size: 35px;">
 				<a class="airQ-blogTitle" href="">
 					{{blog.name}}
 				</a>
@@ -23,8 +23,12 @@
 			<p style="height: 100px;  overflow:hidden;">{{blog.description}}</p>
 
 
-			<a ng-href="#/customer/{{blog.id}}/blog/{{blog.id}}"><button class="btn btn-default pull-right"
-			style="height: 50px;">Read More ></button></a>
+			<a ng-href="#/customer/{{blog.id}}/blog/{{blog.id}}">
+				<button class="btn btn-default pull-right"
+				style="height: 30px; background-color: #ccc; color:white;">
+				Read More >
+				</button>
+			</a>
 		</div>
 	</div>
 </div>
