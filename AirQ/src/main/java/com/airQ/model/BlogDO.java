@@ -1,10 +1,15 @@
 package com.airQ.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
@@ -35,6 +40,13 @@ public class BlogDO extends BasicEntityDO {
 			nullable = false)
 	@JsonBackReference
 	private CustomerDO customer;
+	
+	@OneToMany(
+			fetch = FetchType.LAZY,
+			mappedBy = "blog",
+			cascade = CascadeType.ALL
+			)
+	private List<VoteBlogDO> voteBlogs = new ArrayList<>();
 
 	public String getName() {
 		return name;
@@ -58,6 +70,14 @@ public class BlogDO extends BasicEntityDO {
 
 	public void setCustomer(CustomerDO customer) {
 		this.customer = customer;
+	}
+	
+	public List<VoteBlogDO> getVoteBlogs() {
+		return voteBlogs;
+	}
+
+	public void setVoteBlogs(List<VoteBlogDO> voteBlogs) {
+		this.voteBlogs = voteBlogs;
 	}
 
 	@Override

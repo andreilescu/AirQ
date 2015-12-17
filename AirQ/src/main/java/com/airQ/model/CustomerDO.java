@@ -35,7 +35,7 @@ public class CustomerDO extends BasicEntityDO {
 			fetch = FetchType.LAZY,
 			mappedBy = "customer")
 	private List<BlogDO> blogs;
-
+	
 	public String getFirstName() {
 		return firstName;
 	}
