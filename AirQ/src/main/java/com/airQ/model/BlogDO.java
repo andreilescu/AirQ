@@ -30,6 +30,9 @@ public class BlogDO extends BasicEntityDO {
 	@Column(name = "DESCRIPTION", length = 5000)
 	private String description;
 	
+	@Column 
+	private Integer count;
+	
 	@ManyToOne(
 			fetch = FetchType.EAGER,
 			optional = false
@@ -62,6 +65,14 @@ public class BlogDO extends BasicEntityDO {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	
+	public Integer getCount() {
+		return count;
+	}
+
+	public void setCount(Integer count) {
+		this.count = count;
 	}
 
 	public CustomerDO getCustomer() {

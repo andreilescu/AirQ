@@ -14,6 +14,7 @@ import com.airQ.model.BlogDO;
 import com.airQ.repository.BlogRepository;
 import com.airQ.service.api.BlogService;
 import com.airQ.service.api.CustomerService;
+import com.airQ.service.api.VoteBlogService;
 
 @Service
 public class BlogServiceImpl implements BlogService {
@@ -26,6 +27,9 @@ public class BlogServiceImpl implements BlogService {
 
 	@Autowired
 	private CustomerService customerService;
+	
+	@Autowired
+	private VoteBlogService voteBlogService;
 
 	@Override
 	public List<BlogTO> getAll() {
@@ -33,6 +37,7 @@ public class BlogServiceImpl implements BlogService {
 
 		return blogs
 				.parallelStream()
+				.map(blog -> this.setVoteCounter(blog))
 				.map(blog -> blogConverter.convertEntityIntoTO(blog, new BlogTO()))
 				.collect(Collectors.toList());
 	}
@@ -40,6 +45,7 @@ public class BlogServiceImpl implements BlogService {
 	@Override
 	public BlogTO getBlog(Integer id) {
 		return Optional.ofNullable(blogRepository.findOne(id))
+				.map(blog -> this.setVoteCounter(blog))
 				.map(blog -> blogConverter.convertEntityIntoTO(blog, new BlogTO()))
 				.orElseThrow(() -> new IllegalArgumentException("There's no blog with the ID" + id));
 	}
@@ -62,5 +68,10 @@ public class BlogServiceImpl implements BlogService {
 	@Override
 	public void deleteBlog(Integer id) {
 		blogRepository.delete(id);
+	}
+	
+	private BlogDO setVoteCounter(BlogDO blog) {
+		blog.setCount(voteBlogService.getVoteCounter(blog.getId()));
+		return blog;
 	}
 }

@@ -21,9 +21,11 @@ public class BlogTO extends AbstractTO{
 	
 	private Date createdDate;
 	
+	private Integer count;
+	
 	private CustomerTO customer;
 	
-	public BlogTO(int id, String name, String description, String createdBy, Date lastModifiedDate, Date createdDate,
+	public BlogTO(int id, String name, String description, String createdBy, Date lastModifiedDate, Date createdDate, Integer counter,
 			CustomerTO customer) {
 		super();
 		this.id = id;
@@ -32,6 +34,7 @@ public class BlogTO extends AbstractTO{
 		this.createdBy = createdBy;
 		this.lastModifiedDate = lastModifiedDate;
 		this.createdDate = createdDate;
+		this.count = counter;
 		this.customer = customer;
 	}
 	
@@ -85,6 +88,14 @@ public class BlogTO extends AbstractTO{
 
 	public void setCreatedDate(Date createdDate) {
 		this.createdDate = createdDate;
+	}
+	
+	public Integer getCount() {
+		return count;
+	}
+
+	public void setCount(Integer count) {
+		this.count = count;
 	}
 
 	public CustomerTO getCustomer() {

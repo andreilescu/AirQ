@@ -28,27 +28,11 @@
 			
 			$http.post(url, voteBlog)
             .success(function (voteBlog, status, headers, config) {
-            	vm.count = voteBlog;
+            	vm.loadBlogs();
             })
             .error(function (data, status, header, config) {
             });
 		}
-		
-		vm.getCounter = function(blog) {
-			var url = '/blog/voteBlog/';
-			var blogId = blog.id;
-			
-			$http.get(url + blogId
-					 ) 
-				         .success(function (data) {
-				        	 console.log("succes in obtaining vote blog counter" + data);
-				        	 vm.count = data;
-                         })
-                         .error(function (data) {
-                        	 console.log("error in obtaining vote blog counter");
-                         });
-		}
-
 	
 	vm.loadBlogs();
 	};

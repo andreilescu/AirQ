@@ -22,6 +22,7 @@ public class BlogConverter implements Converter<BlogDO, BlogTO> {
 		blogTO.setCreatedBy(blogDO.getCreatedBy());
 		blogTO.setLastModifiedDate(blogDO.getLastModifiedDate());
 		blogTO.setCreatedDate(blogDO.getCreatedDate());
+		blogTO.setCount(blogDO.getCount());
 		blogTO.setCustomer(customerConverter.convertEntityIntoTO(blogDO.getCustomer(), new CustomerTO()));
 		
 		return blogTO;
@@ -35,6 +36,7 @@ public class BlogConverter implements Converter<BlogDO, BlogTO> {
 		blogDO.setCreatedBy(blogTO.getCreatedBy());
 		blogDO.setLastModifiedDate(blogTO.getLastModifiedDate());
 		blogDO.setCreatedDate(blogTO.getCreatedDate());
+		blogDO.setCount(blogTO.getCount());
 		blogDO.setCustomer(customerConverter.convertTOIntoEntity(blogTO.getCustomer(), new CustomerDO()));
 		
 		return blogDO;
