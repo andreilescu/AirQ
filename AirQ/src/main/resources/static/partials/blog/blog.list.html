@@ -18,24 +18,7 @@
 
 		<div class="row">
 			<div ng-repeat="blog in vm.blogs">
-				<div class="col-md-1">
-					<div class="row">
-						<a ng-click="vm.voteOnBlog(blog, true)"><span class="col-md-12"
-							style="margin-bottom: 10px; height: 50px; background-color: white;">
-								+</span>
-						</a>
-					</div>
-					<div class="row">
-						<span class="col-md-12"
-							style="height: 155px; background-color: white;">{{vm.count}}</span>
-					</div>
-					<div class="row">
-						<a ng-click="vm.voteOnBlog(blog, false)"> <span class="col-md-12"
-							style="margin-top: 10px; height: 50px; background-color: white;">-</span>
-						</a>
-					</div>
-				</div>
-				<div class="col-md-11"
+				<div class="col-md-12"
 					ng-include="'partials/blog/blogMedalion.html'"></div>
 			</div>
 		</div>
