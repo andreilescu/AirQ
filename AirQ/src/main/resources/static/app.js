@@ -5,7 +5,8 @@ angular.module('airQ', ['ngRoute','ngMdIcons', 'ngResource'])
 					redirectTo : '/mapIndex'
 				}).when('/mapIndex', {
 					controller : 'mapController',
-					templateUrl: 'partials/map/mapIndex.html'
+					templateUrl: 'partials/map/mapIndex.html',
+					controllerAs: 'vm'
 				}).when('/stations', {
 					controller : 'stationsController',
 					templateUrl: 'partials/stations/listStations.html'
