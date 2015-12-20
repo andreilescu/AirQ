@@ -345,6 +345,22 @@ a {
 	color: #777;
 }
 
+.airQ-voteBlog-button {
+	height: 50px;
+	border-radius: 0px;
+	border-style: none;
+	color: #777;
+	
+}
+
+.airQ-margin-top-10 {
+	margin-top: 10px;
+}
+
+.airQ-margin-bottom-10 {
+	margin-bottom: 10px;
+}
+
 .airQ-blogPostedBy {
 	color: #777;
 }
