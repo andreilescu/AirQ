@@ -70,7 +70,7 @@ public class BlogDO extends BasicEntityDO {
 	public Integer getCount() {
 		return count;
 	}
-
+	
 	public void setCount(Integer count) {
 		this.count = count;
 	}
