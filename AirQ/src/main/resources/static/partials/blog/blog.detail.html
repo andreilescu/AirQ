@@ -11,8 +11,7 @@
 							<span class="month">03 Dec {{vm.blog.createdDate}}</span>
 						</div>
 					</div>
-				</div>
-
+				</div> 
 				<div class="col-md-9">
 					<div class="airQ-blogTitle-addPage"
 						style="background-color: white;">
@@ -34,8 +33,22 @@
 			</div>
 			
 			<div id="editableDiv" ng-show="vm.isEditable">
-				<div class="col-md-3 airQ-photoArea-addPage">
+			<!-- 	<div class="col-md-3 airQ-photoArea-addPage">
 					<span>Upload a photo</span>
+				</div> -->
+				
+				<div  class="col-md-3">
+					<a id="employeePicture"> 
+						<img class="image_on img-responsive skillz-imageGradient"
+						src="{{employee.photo}}" /> 
+						
+						<img class="image_off skillz-imageGradient2" src="{{employee.photo}}"> 
+						
+						<span uploadfile
+						class="skillz-picture-edit skillz-imageSpan" ngf-select ngf-multiple="false"
+						ngf-change="vm.upload($files)"></span> 
+						<img class="image_off" src="img/photo_change.png">
+					</a>
 				</div>
 	
 				<div class="col-md-9">
