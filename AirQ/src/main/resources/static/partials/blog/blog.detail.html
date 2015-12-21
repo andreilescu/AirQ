@@ -40,14 +40,14 @@
 				<div  class="col-md-3">
 					<a id="employeePicture"> 
 						<img class="image_on img-responsive skillz-imageGradient"
-						src="{{employee.photo}}" /> 
+						src="{{vm.blog.photo}}" /> 
 						
-						<img class="image_off skillz-imageGradient2" src="{{employee.photo}}"> 
+						<img class="image_off skillz-imageGradient2" src="{{vm.blog.photo}}"> 
 						
 						<span uploadfile
 						class="skillz-picture-edit skillz-imageSpan" ngf-select ngf-multiple="false"
 						ngf-change="vm.upload($files)"></span> 
-						<img class="image_off" src="img/photo_change.png">
+						<img class="image_off skillz-imgAbsolutePosition" src="img/photo_change.png">
 					</a>
 				</div>
 	

@@ -10,6 +10,7 @@
 	function blogDetailController($routeParams, blogFactory, Upload) {
 		var vm = this;
 		vm.isEditable = false;
+		vm.blog = {};
 		
 		vm.loadBlog = function() {
 			blogFactory.oneById.get({id:$routeParams.blogId}, function success(data) {
@@ -36,23 +37,26 @@
 		}
 		
 		vm.upload = function(files) {
+			console.log(files);
 			if (files && files.length) {
-//				for (var i = 0; i < files.length; i++) {
-//					var file = files[i];
-//					Upload.upload({ url : 'employeeImages/'+ $stateParams.employeeId, method : 'POST', file : file }).progress(function(evt) {
-//						var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-//						console.log('progress: '  + progressPercentage + '% ' + evt.config.file.name);
-//					})
-//					.success(function(data, status, headers, config) {
-//						$scope.employee.photo = 'data:image/png;base64,' + data.picture;
-//						$scope.employee.picture = data.picture;
-//						toaster.success('The image was uploaded');
-//					})
-//					.error(function(data, status, headers, config) {
-//						console.log('error status: ' + status);
-//						toaster.error('Image format is not supported.');
-//					})
-//				}
+				for (var i = 0; i < files.length; i++) {
+					var file = files[i];
+					console.log("Upload file: " + i);
+					
+					Upload.upload({ url : 'blogImages/'+ vm.blog.id, method : 'POST', file : file }).progress(function(evt) {
+						var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+						console.log('progress: '  + progressPercentage + '% ' + evt.config.file.name);
+					})
+					.success(function(data, status, headers, config) {
+						vm.blog.photo = 'data:image/png;base64,' + data.blogPicture;
+						vm.blog.photo.picture = data.blogPicture;
+						toaster.success('The image was uploaded');
+					})
+					.error(function(data, status, headers, config) {
+						console.log('error status: ' + status);
+						toaster.error('Image format is not supported.');
+					})
+				}
 			}
 		}
 		
