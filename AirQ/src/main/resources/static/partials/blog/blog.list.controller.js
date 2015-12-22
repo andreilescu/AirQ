@@ -5,16 +5,28 @@
 		.module('airQ')
 		.controller('blogListController', blogListController);
 	
-	blogListController.$inject = ['$scope', '$http', '$templateCache', 'blogFactory', 'voteBlogFactory'];
+	blogListController.$inject = ['$scope', '$http', '$templateCache', 'blogFactory', 'voteBlogFactory', 'blogImagesFactory'];
  
-	function blogListController($scope, $http, $templateCache, blogFactory, voteBlogFactory) {
+	function blogListController($scope, $http, $templateCache, blogFactory, voteBlogFactory, blogImagesFactory) {
 		var vm = this;
 		vm.count = 0;
 		
 		vm.loadBlogs = function() {
 			blogFactory.all.get({}, function success(data) {
 				vm.blogs = data;
-			})
+				
+				// Set thumbnail
+				angular.forEach(vm.blogs, function(blog) {
+					blogImagesFactory.thumbnail.get({id:blog.id}, function succes(data) {
+						if(data.thumbnail == null){
+							blog.photo = 'img/blog-default-thumb.png';
+						}
+						else{
+							blog.photo = 'data:image/png;base64,' + data.thumbnail;
+						}
+					});	
+				});
+			});
 		}
 		
 		vm.voteOnBlog = function(blog, vote) {
