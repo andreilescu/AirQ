@@ -11,9 +11,10 @@
 		vm.spreadsheet = "10Fcmr95zIjtgaxpOQO2VMA97OV-q6YSzLq0JeN_se18";
 		vm.url = 'https://spreadsheets.google.com/feeds/list/' + vm.spreadsheet + '/od6/public/values?alt=json';
 		vm.stations = [];
-
-		function initializeMap() {
-			mapService.initializeMap();
+		vm.map = {};
+		
+		function initializeMap(stations) {
+			mapService.initializeMap(stations);
 		}
 
 		function getDataFromSpreadSheet(url) {
@@ -49,16 +50,16 @@
 								}
 							});
 			console.log(vm.stations);
+			vm.map = initializeMap(vm.stations);
 		}
 		
 		function getIndexOfStation (stations, stationName) {
 			return stations.map(function(x) {return x.stationName}).indexOf(stationName);
 		}
 		
-		initializeMap();
-		google.maps.event.addDomListener(window, 'load', initializeMap);
+		
+		google.maps.event.addDomListener(window, 'load', vm.map);
 		getDataFromSpreadSheet(vm.url);
-	}
-	;
+	};
 
 })();

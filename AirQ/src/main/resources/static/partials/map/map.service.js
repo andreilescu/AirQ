@@ -4,15 +4,33 @@
 	angular.module('airQ')
 	.service('mapService', ['$http', function() {
 		
-		this.initializeMap = function () {
+		this.initializeMap = function (stations) {
 			var mapCanvas = document.getElementById('map');
 			var mapOptions = {
-				center : new google.maps.LatLng(44.5403, -78.5463),
-				zoom : 8,
+				center : new google.maps.LatLng(45.746515, 21.227546),
+				zoom : 12,
 				mapTypeId : google.maps.MapTypeId.ROADMAP
 			}
 			var map = new google.maps.Map(mapCanvas, mapOptions);
+			this.drawStationsOnMap(map, stations);
 			return map;
+		}
+		
+		this.drawStationsOnMap = function(map, stations) {
+			for(var i=0; i<stations.length; i++) {
+				
+				this.drawMarkerOnMap(map, stations[i]);
+			}
+		}
+		
+		this.drawMarkerOnMap = function(map, station) {
+			var markerCoordinates = {lat: angular.fromJson(station.coordinates.latitude), lng: angular.fromJson(station.coordinates.longitude)};
+			var marker = new google.maps.Marker(
+					{
+						position: new google.maps.LatLng(markerCoordinates),
+						map: map,
+						title: station.stationName
+					});
 		}
 		
 		this.addStation = function (feed, stations) {
@@ -21,8 +39,9 @@
 			station.stationName = feed.gsx$stationname.$t;
 			// coordinates
 			station.coordinates = {};
-			station.coordinates.latitude = feed.gsx$latitude.$t;
-			station.coordinates.longitude = feed.gsx$longitude.$t;
+			station.coordinates.latitude = feed.gsx$longitude.$t; 
+			station.coordinates.longitude = feed.gsx$latitude.$t;
+			
 			// values of stations
 			station.values = [];
 			var value = {};
@@ -30,6 +49,7 @@
 			value.co2 = feed.gsx$co2.$t;
 			value.voc = feed.gsx$voc.$t;
 			station.values.push(value);
+			
 			// push station to array
 			stations.push(station);
 		}
