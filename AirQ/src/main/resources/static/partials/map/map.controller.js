@@ -9,36 +9,29 @@
 	function mapController($scope, $http, mapService) {
 		var vm = this;
 		vm.spreadsheet = "10Fcmr95zIjtgaxpOQO2VMA97OV-q6YSzLq0JeN_se18";
+		vm.url = 'https://spreadsheets.google.com/feeds/list/' + vm.spreadsheet + '/od6/public/values?alt=json';
 		vm.stations = [];
 
-		function initialize() {
-			var mapCanvas = document.getElementById('map');
-			var mapOptions = {
-				center : new google.maps.LatLng(44.5403, -78.5463),
-				zoom : 8,
-				mapTypeId : google.maps.MapTypeId.ROADMAP
-			}
-			var map = new google.maps.Map(mapCanvas, mapOptions)
+		function initializeMap() {
+			mapService.initializeMap();
 		}
 
-		function getAllDataFromSpreadSheet(spreadsheet) {
-			$http(
-					{
-						url : 'https://spreadsheets.google.com/feeds/list/'
-								+ spreadsheet + '/od6/public/values?alt=json',
+		function getDataFromSpreadSheet(url) {
+			$http({
+						url : url,
 						method : "GET"
-					}).then(function(data) {
-				convertDataToStationData(data);
-			}, function(data) {
-				console.log("Spreadsheet: " + spreadsheet + " not found");
-			});
+				  }).then(
+						  	function(data) {
+						  		convertDataToStationData(data);
+				  		  	}, 
+				  		  	function(data) {
+				  		  		console.log("Spreadsheet: " + spreadsheet + " not found");
+				  		  	}
+				  	);
 		}
 
 		function convertDataToStationData(data) {
 			var feeds = data.data.feed.entry;
-			// console.log(feeds);
-			// iterate for all data and make some operations
-
 			angular
 					.forEach(
 							feeds,
@@ -62,9 +55,9 @@
 			return stations.map(function(x) {return x.stationName}).indexOf(stationName);
 		}
 		
-		initialize();
-		google.maps.event.addDomListener(window, 'load', initialize);
-		getAllDataFromSpreadSheet(vm.spreadsheet);
+		initializeMap();
+		google.maps.event.addDomListener(window, 'load', initializeMap);
+		getDataFromSpreadSheet(vm.url);
 	}
 	;
 

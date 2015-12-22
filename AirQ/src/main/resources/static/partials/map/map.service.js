@@ -2,7 +2,18 @@
 	'use strict'
 	
 	angular.module('airQ')
-	.service('mapService', function() {
+	.service('mapService', ['$http', function() {
+		
+		this.initializeMap = function () {
+			var mapCanvas = document.getElementById('map');
+			var mapOptions = {
+				center : new google.maps.LatLng(44.5403, -78.5463),
+				zoom : 8,
+				mapTypeId : google.maps.MapTypeId.ROADMAP
+			}
+			var map = new google.maps.Map(mapCanvas, mapOptions);
+			return map;
+		}
 		
 		this.addStation = function (feed, stations) {
 			var station = {};
@@ -30,5 +41,5 @@
 			value.voc = feed.gsx$voc.$t;
 			station.values.push(value);
 		}
-	});
+	}]);
 })();
