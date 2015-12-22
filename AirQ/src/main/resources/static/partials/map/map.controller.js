@@ -4,9 +4,9 @@
 	angular.module('airQ').controller('mapController', mapController);
 
 	// for inject dependencies
-	mapController.$inject = [ '$scope', '$http' ];
+	mapController.$inject = [ '$scope', '$http', 'mapService'];
 
-	function mapController($scope, $http) {
+	function mapController($scope, $http, mapService) {
 		var vm = this;
 		vm.spreadsheet = "10Fcmr95zIjtgaxpOQO2VMA97OV-q6YSzLq0JeN_se18";
 		vm.stations = [];
@@ -28,10 +28,9 @@
 								+ spreadsheet + '/od6/public/values?alt=json',
 						method : "GET"
 					}).then(function(data) {
-				// console.log(data);
 				convertDataToStationData(data);
 			}, function(data) {
-				console.log("spreadsheet not found");
+				console.log("Spreadsheet: " + spreadsheet + " not found");
 			});
 		}
 
@@ -44,55 +43,25 @@
 					.forEach(
 							feeds,
 							function(feed) {
-								console.log(feed.gsx$stationname.$t);
-
 								if (vm.stations.length === 0) {
-									addStation(feed);
+									mapService.addStation(feed, vm.stations);
 								} else {
-									var index = vm.stations.map(function(x) {return x.stationName}).indexOf(feed.gsx$stationname.$t);
-									console.log("Station: " + feed.gsx$stationname.$t + "has: "+ index + "index");
+									var index = getIndexOfStation(vm.stations, feed.gsx$stationname.$t);
 									if(index === -1) {
-										console.log("ADD");
-										addStation(feed);
+										mapService.addStation(feed, vm.stations);
 									} else {
-										console.log("APPEND VALUES TO STATIONS");
 										var station = vm.stations[index];
-										appendValuesToStation(station, feed);
+										mapService.appendValuesToStation(station, feed);
 									}	
 								}
 							});
-			
 			console.log(vm.stations);
 		}
-
-		function addStation(feed) {
-			var station = {};
-			// create new station entry
-			station.stationName = feed.gsx$stationname.$t;
-			// coordinates
-			station.coordinates = {};
-			station.coordinates.latitude = feed.gsx$latitude.$t;
-			station.coordinates.longitude = feed.gsx$longitude.$t;
-			// values of stations
-			station.values = [];
-			var value = {};
-			value.date = feed.gsx$datetime.$t;
-			value.co2 = feed.gsx$co2.$t;
-			value.voc = feed.gsx$voc.$t;
-			station.values.push(value);
-			console.log(station);
-			// push station to array
-			vm.stations.push(station);
+		
+		function getIndexOfStation (stations, stationName) {
+			return stations.map(function(x) {return x.stationName}).indexOf(stationName);
 		}
 		
-		function appendValuesToStation(station, feed) {
-			var value = {};
-			value.date = feed.gsx$datetime.$t;
-			value.co2 = feed.gsx$co2.$t;
-			value.voc = feed.gsx$voc.$t;
-			station.values.push(value);
-		}
-
 		initialize();
 		google.maps.event.addDomListener(window, 'load', initialize);
 		getAllDataFromSpreadSheet(vm.spreadsheet);
