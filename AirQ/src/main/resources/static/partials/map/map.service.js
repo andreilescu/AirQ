@@ -35,8 +35,10 @@
 		
 		this.addStation = function (feed, stations) {
 			var station = {};
+			
 			// create new station entry
 			station.stationName = feed.gsx$stationname.$t;
+			
 			// coordinates
 			station.coordinates = {};
 			station.coordinates.latitude = feed.gsx$longitude.$t; 
