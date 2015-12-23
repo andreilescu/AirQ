@@ -23,7 +23,7 @@
 						method : "GET"
 				  }).then(
 						  	function(data) {
-						  		convertDataToStationData(data);
+						  		convertSpreadsheetDataToStationData(data);
 				  		  	}, 
 				  		  	function(data) {
 				  		  		console.log("Spreadsheet: " + spreadsheet + " not found");
@@ -31,7 +31,7 @@
 				  	);
 		}
 
-		function convertDataToStationData(data) {
+		function convertSpreadsheetDataToStationData(data) {
 			var feeds = data.data.feed.entry;
 			angular
 					.forEach(

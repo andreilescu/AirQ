@@ -31,6 +31,10 @@
 						map: map,
 						title: station.stationName
 					});
+			
+			google.maps.event.addListener(marker, 'click', function () {
+				  window.location.href = '/#/report';
+			});
 		}
 		
 		this.addStation = function (feed, stations) {
