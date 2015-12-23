@@ -4,62 +4,35 @@
 	angular.module('airQ').controller('mapController', mapController);
 
 	// for inject dependencies
-	mapController.$inject = [ '$scope', '$http', 'mapService'];
+	mapController.$inject = [ '$scope', '$http', 'mapService' ];
 
 	function mapController($scope, $http, mapService) {
 		var vm = this;
-		vm.spreadsheet = "10Fcmr95zIjtgaxpOQO2VMA97OV-q6YSzLq0JeN_se18";
-		vm.url = 'https://spreadsheets.google.com/feeds/list/' + vm.spreadsheet + '/od6/public/values?alt=json';
-		vm.stations = [];
 		vm.map = {};
-		
-		function initializeMap(stations) {
-			mapService.initializeMap(stations);
+		vm.stations = [];
+
+		function convertSpreadsheetToStationData() {
+			vm.stations = mapService.convertSpreadsheetToStationData();
 		}
 
-		function getDataFromSpreadSheet(url) {
-			$http({
-						url : url,
-						method : "GET"
-				  }).then(
-						  	function(data) {
-						  		convertSpreadsheetDataToStationData(data);
-				  		  	}, 
-				  		  	function(data) {
-				  		  		console.log("Spreadsheet: " + spreadsheet + " not found");
-				  		  	}
-				  	);
+		// initialize the map
+		function initializeMap() {
+			vm.map = mapService.initializeMap();
 		}
 
-		function convertSpreadsheetDataToStationData(data) {
-			var feeds = data.data.feed.entry;
-			angular
-					.forEach(
-							feeds,
-							function(feed) {
-								if (vm.stations.length === 0) {
-									mapService.addStation(feed, vm.stations);
-								} else {
-									var index = getIndexOfStation(vm.stations, feed.gsx$stationname.$t);
-									if(index === -1) {
-										mapService.addStation(feed, vm.stations);
-									} else {
-										var station = vm.stations[index];
-										mapService.appendValuesToStation(station, feed);
-									}	
-								}
-							});
-			console.log(vm.stations);
-			vm.map = initializeMap(vm.stations);
+		// draw stations on map
+		function drawStationsOnMap() {
+			vm.map = mapService.drawStationsOnMap(vm.map, vm.stations);
 		}
-		
-		function getIndexOfStation (stations, stationName) {
-			return stations.map(function(x) {return x.stationName}).indexOf(stationName);
+
+		function initializeAll() {
+			convertSpreadsheetToStationData();
+			initializeMap();	
 		}
-		
-		
+
+		initializeAll();
 		google.maps.event.addDomListener(window, 'load', vm.map);
-		getDataFromSpreadSheet(vm.url);
-	};
+	}
+	;
 
 })();
