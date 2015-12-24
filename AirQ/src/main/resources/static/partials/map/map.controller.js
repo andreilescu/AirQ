@@ -11,14 +11,14 @@
 		vm.map = {};
 		vm.stations = [];
 
-		function convertSpreadsheetToStationData() {
-			vm.stations = mapService.convertSpreadsheetToStationData();
-		}
-
-		// initialize the map
-		function initializeMap() {
-			vm.map = mapService.initializeMap();
-		}
+//		function convertSpreadsheetToStationData() {
+//			vm.stations = mapService.convertSpreadsheetToStationData();
+//		}
+//
+//		// initialize the map
+//		function initializeMap() {
+//			vm.map = mapService.initializeMap();
+//		}
 
 		// draw stations on map
 		function drawStationsOnMap() {
@@ -26,12 +26,22 @@
 		}
 
 		function initializeAll() {
-			convertSpreadsheetToStationData();
-			initializeMap();	
+			
+			vm.map = mapService.initializeMap();
+			vm.stations = mapService.convertSpreadsheetToStationData();
+			
+			vm.stations.then( 
+								function(resolve){
+									vm.map.then( function (resolve) {
+										mapService.drawStationsOnMap(vm.map, vm.stations);
+									})
+								}, function(reject) {
+									console.log("error");
+								}
+			);
 		}
 
 		initializeAll();
-		google.maps.event.addDomListener(window, 'load', vm.map);
 	}
 	;
 

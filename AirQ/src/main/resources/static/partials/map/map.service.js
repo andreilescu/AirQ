@@ -3,9 +3,9 @@
 	
 		angular.module('airQ')
 		.service('mapService', mapService);
-		mapService.$inject = ['$http']; 
+		mapService.$inject = ['$http', '$q']; 
 	                        
-	function mapService($http) {
+	function mapService($http, $q) {
 		
 	var spreadsheet = "10Fcmr95zIjtgaxpOQO2VMA97OV-q6YSzLq0JeN_se18";
 	var url = 'https://spreadsheets.google.com/feeds/list/' + spreadsheet + '/od6/public/values?alt=json';
@@ -16,6 +16,8 @@
 	
 		this.convertSpreadsheetToStationData = function() {
 		 
+			var deferred = $q.defer();
+			
 			// retrieve data from Spreadsheet
 			$http({
 				url : url,
@@ -46,7 +48,9 @@
 	  		  	function(data) {
 	  		  		console.log("Spreadsheet: " + spreadsheet + " not found");
 	  		  	}
-		  );		
+		  );
+			
+			 return deferred.promise;
 		}
 	
 	
@@ -71,6 +75,8 @@
 		}
 		
 		this.initializeMap = function () {
+			var deferred = $q.defer();
+			
 			var mapCanvas = document.getElementById('map');
 			var mapOptions = {
 				center : new google.maps.LatLng(45.746515, 21.227546),
@@ -79,12 +85,16 @@
 			}
 			var map = new google.maps.Map(mapCanvas, mapOptions);
 			return map;
+			
+			 return deferred.promise;
 		}
 			
 		this.drawStationsOnMap = function (map, stations) { 
 			for(var i=0; i<stations.length; i++) {
 				drawMarkerOnMap(map, stations[i]);
 			}
+			
+			google.maps.event.addDomListener(window, 'load', vm.map);
 		}
 		
 		function drawMarkerOnMap(map, station) {
