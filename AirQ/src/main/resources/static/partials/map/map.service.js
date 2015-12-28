@@ -17,12 +17,17 @@
 		this.convertSpreadsheetToStationData = function() {
 		 
 			var deferred = $q.defer();
+			var dataRetrieved = getDataFromSpreadSheet();
 			
+			setTimeout(function() {
+				deferred.notify('About to map ');
 			// retrieve data from Spreadsheet
-			$http({
-				url : url,
-				method : "GET"
-		  }).then(
+//			$http({
+//				url : url,
+//				method : "GET"
+//		  })
+				
+				dataRetrieved.then(
 			  	function(data) {
 			  	// retrieve feeds from data
 					var feeds = data.data.feed.entry;
@@ -43,29 +48,37 @@
 										}
 									});
 					console.log(stations);
-					return stations;
+//					return stations;
 	  		  	}, 
 	  		  	function(data) {
 	  		  		console.log("Spreadsheet: " + spreadsheet + " not found");
 	  		  	}
 		  );
 			
+				if(stations) {
+					deferred.resolve(stations);
+				} else {
+					 deferred.reject(stations);
+				}
+			}, 10000); 
 			 return deferred.promise;
 		}
 	
 	
 		function getDataFromSpreadSheet () {
-			$http({
-						url : url,
-						method : "GET"
-				  }).then(
-						  	function(data) {
-						  		return data;
-				  		  	}, 
-				  		  	function(data) {
-				  		  		console.log("Spreadsheet: " + spreadsheet + " not found");
-				  		  	}
-				  	);
+			var deferred = $q.defer();
+				$http({
+							url : url,
+							method : "GET"
+					  }).then(
+							  	function(data) {
+							  		deferred.resolve(data);
+					  		  	}, 
+					  		  	function(data) {
+					  		  	deferred.reject("Spreadsheet: " + spreadsheet + " not found");
+					  		  	}
+				);
+			return deferred.promise;
 		}
 	
 		
@@ -77,14 +90,24 @@
 		this.initializeMap = function () {
 			var deferred = $q.defer();
 			
-			var mapCanvas = document.getElementById('map');
-			var mapOptions = {
-				center : new google.maps.LatLng(45.746515, 21.227546),
-				zoom : 12,
-				mapTypeId : google.maps.MapTypeId.ROADMAP
-			}
-			var map = new google.maps.Map(mapCanvas, mapOptions);
-			return map;
+			setTimeout(function() {
+				deferred.notify('About to map ');
+				var mapCanvas = document.getElementById('map');
+				var mapOptions = {
+					center : new google.maps.LatLng(45.746515, 21.227546),
+					zoom : 12,
+					mapTypeId : google.maps.MapTypeId.ROADMAP
+				}
+				var map = new google.maps.Map(mapCanvas, mapOptions);
+		
+				if(map) {
+					deferred.resolve(map);
+				} else {
+					 deferred.reject(map);
+				}
+				
+			}, 1000);
+		
 			
 			 return deferred.promise;
 		}
@@ -94,7 +117,7 @@
 				drawMarkerOnMap(map, stations[i]);
 			}
 			
-			google.maps.event.addDomListener(window, 'load', vm.map);
+			google.maps.event.addDomListener(window, 'load', map);
 		}
 		
 		function drawMarkerOnMap(map, station) {

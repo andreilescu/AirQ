@@ -11,14 +11,14 @@
 		vm.map = {};
 		vm.stations = [];
 
-//		function convertSpreadsheetToStationData() {
-//			vm.stations = mapService.convertSpreadsheetToStationData();
-//		}
+// function convertSpreadsheetToStationData() {
+// vm.stations = mapService.convertSpreadsheetToStationData();
+// }
 //
-//		// initialize the map
-//		function initializeMap() {
-//			vm.map = mapService.initializeMap();
-//		}
+// // initialize the map
+// function initializeMap() {
+// vm.map = mapService.initializeMap();
+// }
 
 		// draw stations on map
 		function drawStationsOnMap() {
@@ -30,15 +30,14 @@
 			vm.map = mapService.initializeMap();
 			vm.stations = mapService.convertSpreadsheetToStationData();
 			
-			vm.stations.then( 
-								function(resolve){
-									vm.map.then( function (resolve) {
-										mapService.drawStationsOnMap(vm.map, vm.stations);
-									})
-								}, function(reject) {
-									console.log("error");
-								}
-			);
+			vm.map.then( function (resolveMap) {
+													vm.stations.then(function(resolveStations){
+														mapService.drawStationsOnMap(vm.map.$$state.value, vm.stations.$$state.value);
+													}, function(reject) {
+														console.log("error");
+													}
+				);
+			})
 		}
 
 		initializeAll();
