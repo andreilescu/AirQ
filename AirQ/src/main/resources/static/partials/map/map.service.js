@@ -17,6 +17,7 @@
 		this.convertSpreadsheetToStationData = convertSpreadsheetToStationData;
 		this.initializeMap = initializeMap;
 		this.drawStationsOnMap = drawStationsOnMap;
+		this.getStationByName = getStationByName;
 		
 		// intern
 		var getDataFromSpreadSheet = getDataFromSpreadSheet;
@@ -92,6 +93,19 @@
 		function getIndexOfStation(stations, stationName) {
 			return stations.map(function(x) {return x.stationName}).indexOf(stationName);
 		}
+		
+		function getStationByName(stations, stationName) {
+			var station = {};
+			stations.map(
+						function(x) {
+							if(x.stationName === stationName) {
+								station = x;
+							}	
+						});
+			
+			return station;
+		};
+		
 		
 		function initializeMap() {
 			var deferred = $q.defer();
