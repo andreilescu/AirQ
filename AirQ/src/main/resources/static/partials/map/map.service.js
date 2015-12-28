@@ -5,50 +5,56 @@
 		.service('mapService', mapService);
 		mapService.$inject = ['$http', '$q']; 
 	                        
-	function mapService($http, $q) {
+		function mapService($http, $q) {
 		
-	var spreadsheet = "10Fcmr95zIjtgaxpOQO2VMA97OV-q6YSzLq0JeN_se18";
-	var url = 'https://spreadsheets.google.com/feeds/list/' + spreadsheet + '/od6/public/values?alt=json';
-		
-	var stations = [];
-	var map = {};
-		
+		var spreadsheet = "10Fcmr95zIjtgaxpOQO2VMA97OV-q6YSzLq0JeN_se18";
+		var url = 'https://spreadsheets.google.com/feeds/list/' + spreadsheet + '/od6/public/values?alt=json';
+			
+		var stations = [];
+		var map = {};
 	
-		this.convertSpreadsheetToStationData = function() {
-		 
+		// api 
+		this.convertSpreadsheetToStationData = convertSpreadsheetToStationData;
+		this.initializeMap = initializeMap;
+		this.drawStationsOnMap = drawStationsOnMap;
+		
+		// intern
+		var getDataFromSpreadSheet = getDataFromSpreadSheet;
+		var getIndexOfStation = getIndexOfStation;
+		var drawMarkerOnMap = drawMarkerOnMap;
+		var addStation = addStation;
+		var appendValuesToStation = appendValuesToStation;
+	
+	
+		function convertSpreadsheetToStationData() {
+			 
 			var deferred = $q.defer();
 			var dataRetrieved = getDataFromSpreadSheet();
 			
 			setTimeout(function() {
-				deferred.notify('About to map ');
-			// retrieve data from Spreadsheet
-//			$http({
-//				url : url,
-//				method : "GET"
-//		  })
-				
+				deferred.notify('About to map ');		
 				dataRetrieved.then(
-			  	function(data) {
-			  	// retrieve feeds from data
-					var feeds = data.data.feed.entry;
-					angular
-							.forEach(
-									feeds,
-									function(feed) {
-										if (stations.length === 0) {
-											addStation(feed, stations);
-										} else {
-											var index = getIndexOfStation(stations, feed.gsx$stationname.$t);
-											if(index === -1) {
+			  	
+						function(data) {
+//								 retrieve feeds from data
+						var feeds = data.data.feed.entry;
+						angular
+								.forEach(
+										feeds,
+										function(feed) {
+											if (stations.length === 0) {
 												addStation(feed, stations);
 											} else {
-												var station = stations[index];
-												appendValuesToStation(station, feed);
-											}	
-										}
-									});
-					console.log(stations);
-//					return stations;
+												var index = getIndexOfStation(stations, feed.gsx$stationname.$t);
+												if(index === -1) {
+													addStation(feed, stations);
+												} else {
+													var station = stations[index];
+													appendValuesToStation(station, feed);
+												}	
+											}
+										});
+						console.log(stations);
 	  		  	}, 
 	  		  	function(data) {
 	  		  		console.log("Spreadsheet: " + spreadsheet + " not found");
@@ -60,7 +66,7 @@
 				} else {
 					 deferred.reject(stations);
 				}
-			}, 10000); 
+			}, 500); 
 			 return deferred.promise;
 		}
 	
@@ -87,7 +93,7 @@
 			return stations.map(function(x) {return x.stationName}).indexOf(stationName);
 		}
 		
-		this.initializeMap = function () {
+		function initializeMap() {
 			var deferred = $q.defer();
 			
 			setTimeout(function() {
@@ -107,12 +113,11 @@
 				}
 				
 			}, 1000);
-		
-			
 			 return deferred.promise;
 		}
 			
-		this.drawStationsOnMap = function (map, stations) { 
+		function drawStationsOnMap(map, stations) { 
+			// draw markers
 			for(var i=0; i<stations.length; i++) {
 				drawMarkerOnMap(map, stations[i]);
 			}
