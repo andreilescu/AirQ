@@ -18,6 +18,7 @@
 		this.initializeMap = initializeMap;
 		this.drawStationsOnMap = drawStationsOnMap;
 		this.getStationByName = getStationByName;
+		this.getAllStationNames = getAllStationNames;
 		
 		// intern
 		var getDataFromSpreadSheet = getDataFromSpreadSheet;
@@ -28,7 +29,6 @@
 	
 	
 		function convertSpreadsheetToStationData() {
-			 
 			var deferred = $q.defer();
 			var dataRetrieved = getDataFromSpreadSheet();
 			
@@ -106,6 +106,15 @@
 			return station;
 		};
 		
+		function getAllStationNames(stations) {
+			var stationNames = [];
+			stations.map(
+						function(x) {
+							stationNames.push(x.stationName);
+						}
+			)
+			return stationNames;
+		}
 		
 		function initializeMap() {
 			var deferred = $q.defer();

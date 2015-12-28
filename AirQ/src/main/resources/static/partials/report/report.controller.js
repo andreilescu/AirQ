@@ -7,22 +7,27 @@
 		
 		var vm = this;
 		vm.stations = [];
-		vm.stationName = 'STATION A';
+		vm.stationNames = [];
+		vm.selectedStationName = 'STATION A'; 
 		vm.station = {};
 		
 //		api
 		vm.getStationByName = getStationByName;
 //		internal
 
-		function getStationByName(stationName) {
-
-			vm.stations = mapService.convertSpreadsheetToStationData();
+		function getStationByName(selectedStationName) {
 			
+			vm.station = {};
+			vm.stations = mapService.convertSpreadsheetToStationData();
 			vm.stations.then( function(stations) {
-				vm.station = mapService.getStationByName(stations, stationName);
+				vm.station = mapService.getStationByName(stations, selectedStationName);
+				console.log(vm.station.values);
+				vm.stationNames = mapService.getAllStationNames(stations);
 			});
 		}
 		
-		getStationByName(vm.stationName);
+		
+		
+		getStationByName(vm.selectedStationName);
 	}
 })();
