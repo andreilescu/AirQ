@@ -11,17 +11,9 @@
 		vm.stationNames = [];
 		vm.selectedStationName = 'STATION A';
 		vm.station = {};
-		
-		
-		vm.labels = ["January", "February", "March", "April", "May", "June", "July"];
-		vm.series = ['Series A', 'Series B'];
-		vm.data = [
-		    [65, 59, 80, 81, 56, 55, 40],
-		    [28, 48, 40, 19, 86, 27, 90]
-		];
-		vm.onClick = function (points, evt) {
-		    console.log(points, evt);
-		};
+		vm.co2ChartData = {};
+		vm.vocChartData = {}; 
+		vm.co2vocChartData = {};
 		
 		// api
 		vm.getStationByName = getStationByName;
@@ -34,8 +26,14 @@
 			vm.stations.then(function(stations) {
 				vm.station = mapService.getStationByName(stations,
 						selectedStationName);
-				console.log(vm.station.values);
 				vm.stationNames = mapService.getAllStationNames(stations);
+				
+				// configure chart data structure
+				vm.co2ChartData = mapService.configureCo2ChartData(vm.station);
+				vm.vocChartData = mapService.configureVocChartData(vm.station);
+				vm.co2vocChartData = mapService.configureCo2VocChartData(vm.station);
+				
+				console.log(vm.co2ChartData);
 			});
 		}
 
