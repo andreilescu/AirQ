@@ -1,5 +1,5 @@
 'use strict';
-angular.module('airQ', ['ngRoute','ngMdIcons', 'ngResource', 'ngFileUpload'])
+angular.module('airQ', ['ngRoute','ngMdIcons', 'ngResource', 'ngFileUpload', 'chart.js'])
 	.config(function($routeProvider) {
 				$routeProvider.when('/', {
 					redirectTo : '/mapIndex'

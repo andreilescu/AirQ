@@ -466,3 +466,8 @@ a {
 .skillz-employee-image-thumb {
 	height: 240px;
 }
+
+.chart {
+ width: 500px;
+ height: 500px;
+}
