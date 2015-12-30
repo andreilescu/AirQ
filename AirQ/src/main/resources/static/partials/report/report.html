@@ -5,7 +5,6 @@
 			<select ng-model="vm.selectedStationName" ng-change="vm.getStationByName(vm.selectedStationName)">
 				<option ng-repeat="name in vm.stationNames">{{name}}</option>
 			</select>
-			<span>{{vm.selectedStationName}}</span>
 		</div>
 
 		<div class="row" style="padding-top: 5%; padding-bottom: 5%">
@@ -26,10 +25,6 @@
 						</tr>
 					</tbody>
 				</table>
-				
-				<span>
-				{{vm.station.values.length}}
-				</span>
 			</div>
 
 			<div class="col-md-3">

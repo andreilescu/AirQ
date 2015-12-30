@@ -186,6 +186,26 @@
 		}
 		
 		function appendValuesToStation(station, feed) {
+			var containsValue = false;
+			
+			if(station.values.length > 0) {
+				
+				station.values.map(function(x) {
+					// test if station contains feed with the same date
+					if(x.date === feed.gsx$datetime.$t) {
+						// set flat to true
+						containsValue = true;
+					}
+				});
+				if(containsValue === false) {
+					createStationValue(station, feed);
+				}
+			} else {
+				createStationValue(station, feed);
+			}
+		}
+		
+		function createStationValue(station, feed) {
 			var value = {};
 			value.date = feed.gsx$datetime.$t;
 			value.co2 = feed.gsx$co2.$t;
