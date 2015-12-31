@@ -13,7 +13,7 @@
 		
 //		 configure function that set all fields that are needed for drawing a chart
 		function configureCo2ChartData(station) {
-			if(station != null) {
+			if(station != null && station.values != null) {
 				
 				// configure CO2 char data structure
 				var chartData = {};
@@ -33,7 +33,7 @@
 		}
 		
 		function configureVocChartData(station) {
-			if(station != null) {
+			if(station != null && station.values != null) {
 				
 				// configure VOC char data structure
 				var chartData = {};
@@ -53,7 +53,7 @@
 		}
 		
 		function configureCo2VocChartData(station) {
-			if(station != null) {
+			if(station != null && station.values != null) {
 				
 				// configure VOC char data structure
 				var chartData = {};

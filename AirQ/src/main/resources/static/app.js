@@ -10,6 +10,10 @@ angular.module('airQ', ['ngRoute','ngMdIcons', 'ngResource', 'ngFileUpload', 'ch
 				}).when('/stations', {
 					controller : 'stationsController',
 					templateUrl: 'partials/stations/listStations.html'
+				}).when('/report/:stationName', {
+					controller : 'reportController',
+					templateUrl: 'partials/report/report.html',
+					controllerAs : 'vm'
 				}).when('/report', {
 					controller : 'reportController',
 					templateUrl: 'partials/report/report.html',

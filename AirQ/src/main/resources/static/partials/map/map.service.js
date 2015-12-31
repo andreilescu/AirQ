@@ -150,15 +150,18 @@
 		
 		function drawMarkerOnMap(map, station) {
 			var markerCoordinates = {lat: angular.fromJson(station.coordinates.latitude), lng: angular.fromJson(station.coordinates.longitude)};
+			var stationName = station.stationName;
 			var marker = new google.maps.Marker(
 					{
 						position: new google.maps.LatLng(markerCoordinates),
 						map: map,
-						title: station.stationName
+						title: stationName
 					});
 			
+			var infoWindow = new google.maps.InfoWindow();
+			
 			google.maps.event.addListener(marker, 'click', function () {
-				  window.location.href = '/#/report';
+				window.location.href = '/#/report/' + stationName;
 			});
 		}
 		

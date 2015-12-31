@@ -3,8 +3,8 @@
 	.controller('reportController', reportController);
 	
 	
-	reportController.$inject = ['mapService', 'reportService'];
-	function reportController(mapService, reportService) {
+	reportController.$inject = ['$routeParams', 'mapService', 'reportService'];
+	function reportController($routeParams, mapService, reportService) {
 
 		var vm = this;
 		vm.stations = [];
@@ -20,7 +20,11 @@
 		// internal
 
 		function getStationByName(selectedStationName) {
-
+			
+			if($routeParams.stationName != null) {
+				vm.selectedStationName = $routeParams.stationName;
+			}
+			
 			vm.station = {};
 			vm.stations = mapService.convertSpreadsheetToStationData();
 			vm.stations.then(function(stations) {
@@ -35,6 +39,7 @@
 				
 				console.log(vm.co2ChartData);
 			});
+			
 		}
 
 		getStationByName(vm.selectedStationName);
