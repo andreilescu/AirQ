@@ -1,56 +1,46 @@
 <div id="reportDiv">
-	<div class="container" style="background-color: white">
-		<div class="row" style="padding: 2% 2%">
-			<span style="font-weight: bold;">Please select station:</span> 
-			<select ng-model="vm.selectedStationName" ng-change="vm.getStationByName(vm.selectedStationName)">
+	<div class="container" style="background-color: #F3F3F3">
+		<div class="row" style="padding: 1% 2%">
+			<h1>Charts</h1>
+			<span style="font-weight: bold;">Please select station:</span> <select
+				ng-model="vm.selectedStationName"
+				ng-change="vm.getStationByName(vm.selectedStationName)">
 				<option ng-repeat="name in vm.stationNames">{{name}}</option>
 			</select>
 		</div>
 
-		<div class="row" style="padding-top: 5%; padding-bottom: 5%">
-			<div class="col-md-7">
-				<table class="table table-striped">
-					<thead>
-						<tr>
-							<th>Date</th>
-							<th>CO2</th>
-							<th>VOC</th>
-						</tr>
-					</thead>
-					<tbody>
- 						<tr ng-repeat="value in vm.station.values">
-							<td>{{value.date}}</td>
-							<td>{{value.co2}}</td>
-							<td>{{value.voc}}</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
+		<div class="row" style="padding-top: 2%; padding-bottom: 5%">
+			<div class="col-md-12">
+				<div style="background-color: white;">
+					<div class="airQ-widget-title">CO2</div>
+					
+					<canvas style="background-color: white; padding: 1%;" 
+						id="line1" class="chart chart-line"
+						chart-data="vm.co2ChartData.data"
+						chart-labels="vm.co2ChartData.labels" chart-legend="true"
+						chart-series="vm.co2ChartData.series">
+					</canvas>
+				</div>
 
-			<div class="col-md-5">
-				<span style="font-weight: bold;"> Grafics</span>
-				
-				<canvas id="line1" class="chart chart-line" 
-					chart-data="vm.co2ChartData.data"
-				  	chart-labels="vm.co2ChartData.labels" 
-				  	chart-legend="true" 
-				  	chart-series="vm.co2ChartData.series">
-				</canvas> 
-				
-				<canvas id="line2" class="chart chart-line" 
-					chart-data="vm.vocChartData.data"
-				  	chart-labels="vm.vocChartData.labels" 
-				  	chart-legend="true" 
-				  	chart-series="vm.vocChartData.series">
-				</canvas> 
-				
-				<canvas id="line3" class="chart chart-line" 
-					chart-data="vm.co2vocChartData.data"
-				  	chart-labels="vm.co2vocChartData.labels" 
-				  	chart-legend="true" 
-				  	chart-series="vm.co2vocChartData.series">
-				</canvas> 
-				
+				<div style="background-color: white;">
+					<div class="airQ-widget-title">VOC</div>
+					<canvas style="background-color: white; padding: 1%;" 
+						id="line2" class="chart chart-line" 
+						chart-data="vm.vocChartData.data"
+						chart-labels="vm.vocChartData.labels" chart-legend="true"
+						chart-series="vm.vocChartData.series">
+					</canvas>
+				</div>
+
+				<div style="background-color: white;">
+					<div class="airQ-widget-title">CO2 and VOC</div>
+					<canvas style="background-color: white; padding: 1%;" id="line3"
+						class="chart chart-line" chart-data="vm.co2vocChartData.data"
+						chart-labels="vm.co2vocChartData.labels" chart-legend="true"
+						chart-series="vm.co2vocChartData.series">
+				</canvas>
+				</div>
+
 			</div>
 		</div>
 	</div>
