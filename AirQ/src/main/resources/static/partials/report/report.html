@@ -1,44 +1,81 @@
 <div id="reportDiv">
 	<div class="container" style="background-color: #F3F3F3">
-		<div class="row" style="padding: 1% 2%">
-			<h1>Charts</h1>
-			<span style="font-weight: bold;">Please select station:</span> <select
-				ng-model="vm.selectedStationName"
-				ng-change="vm.getStationByName(vm.selectedStationName)">
-				<option ng-repeat="name in vm.stationNames">{{name}}</option>
-			</select>
+		<div class="row" style="margin-top: 1%">
+			<div class="col-md-12">
+				
+				<div class="col-md-12 airQ-statistic-component-header"> 
+					<h1 class="airQ-reportChart-title">Charts</h1>
+				</div>
+				
+				<div class="col-md-12 airQ-statistic-component-header">
+					<div class="col-md-3 airQ-padding-left-0 airQ-report-select-title">
+						Please select station:
+					</div> 
+					<div class="col-md-5 airQ-padding-left-0">
+						<select class="form-control airQ-report-select"
+							ng-model="vm.selectedStationName"
+							ng-change="vm.getStationByName(vm.selectedStationName)">
+							<option class="airQ-report-select-option" ng-repeat="name in vm.stationNames">{{name}}</option>
+						</select>
+					</div>
+				</div>
+			</div>
 		</div>
 
-		<div class="row" style="padding-top: 2%; padding-bottom: 5%">
+		<div class="row airQ-padding-bottom-5">
 			<div class="col-md-12">
-				<div style="background-color: white;">
-					<div class="airQ-widget-title">CO2</div>
+		
+				<div class="airQ-statistic-component">
+					<div class="col-md-12 airQ-widget-padding">
+						<div class="airQ-widget-title">CO2</div>
+					</div>
 					
-					<canvas style="background-color: white; padding: 1%;" 
-						id="line1" class="chart chart-line"
-						chart-data="vm.co2ChartData.data"
-						chart-labels="vm.co2ChartData.labels" chart-legend="true"
-						chart-series="vm.co2ChartData.series">
-					</canvas>
+					<div class="col-md-12 airQ-padding-l-r-0">
+						<canvas id="line1"
+							class="chart chart-line airQ-canvas" 
+							chart-data="vm.co2ChartData.data"
+							chart-labels="vm.co2ChartData.labels" 
+							chart-legend="true"
+							chart-series="vm.co2ChartData.series">
+						</canvas>
+					</div>
+
+					<div ng-include="'partials/report/components/report.additional.statistics.html'"/>
 				</div>
 
-				<div style="background-color: white;">
-					<div class="airQ-widget-title">VOC</div>
-					<canvas style="background-color: white; padding: 1%;" 
-						id="line2" class="chart chart-line" 
-						chart-data="vm.vocChartData.data"
-						chart-labels="vm.vocChartData.labels" chart-legend="true"
-						chart-series="vm.vocChartData.series">
-					</canvas>
+
+				<div class="airQ-statistic-component">
+					<div class="col-md-12 airQ-widget-padding">
+						<div class="airQ-widget-title">VOC</div>
+					</div>
+					<div class="col-md-12 airQ-padding-l-r-0">
+						<canvas id="line2"
+							class="chart chart-line airQ-canvas" 
+							chart-data="vm.vocChartData.data"
+							chart-labels="vm.vocChartData.labels" 
+							chart-legend="true"
+							chart-series="vm.vocChartData.series">
+						</canvas>
+					</div>
+					
+					<div ng-include="'partials/report/components/report.additional.statistics.html'"/>
 				</div>
 
-				<div style="background-color: white;">
-					<div class="airQ-widget-title">CO2 and VOC</div>
-					<canvas style="background-color: white; padding: 1%;" id="line3"
-						class="chart chart-line" chart-data="vm.co2vocChartData.data"
-						chart-labels="vm.co2vocChartData.labels" chart-legend="true"
-						chart-series="vm.co2vocChartData.series">
-				</canvas>
+				<div class="airQ-statistic-component">
+					<div class="col-md-12 airQ-widget-padding">
+						<div class="airQ-widget-title">CO2 and VOC</div>
+					</div>
+					<div class="col-md-12 airQ-padding-l-r-0">
+						<canvas id="line3"
+							class="chart chart-line airQ-canvas" 
+							chart-data="vm.co2vocChartData.data"
+							chart-labels="vm.co2vocChartData.labels" 
+							chart-legend="true"
+							chart-series="vm.co2vocChartData.series">
+						</canvas>
+					</div>
+					
+					<div ng-include="'partials/report/components/report.additional.statistics.html'"/>
 				</div>
 
 			</div>

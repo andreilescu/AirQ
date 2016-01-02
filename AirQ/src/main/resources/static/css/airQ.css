@@ -192,6 +192,14 @@ body {
 	padding-left: 40px;
 }
 
+.airQ-padding-bottom-1 {
+	margin-bottom: 2%;
+}
+
+.airQ-padding-bottom-5 {
+	padding-bottom: 5%;
+}
+
 #footer {
 	background-color: #383838;
 }
@@ -330,6 +338,15 @@ a {
 	padding-left: 0;
 }
 
+.airQ-padding-right-0 {
+	padding-right: 0;
+}
+
+.airQ-padding-l-r-0 {
+	padding-left: 0;
+	padding-right: 0;
+}
+
 .airQ-input-search {
 	width: 100%;
 	height: 50px;
@@ -350,7 +367,6 @@ a {
 	border-radius: 0px;
 	border-style: none;
 	color: #777;
-	
 }
 
 .airQ-margin-top-10 {
@@ -468,18 +484,82 @@ a {
 }
 
 .chart {
- width: 400px;
- height: 100px;
+	width: 400px;
+	height: 100px;
 }
 
+.airQ-statistic-component {
+	background-color: white;
+	margin-top: 1%;
+}
+
+.airQ-statistic-component-header {
+	background-color: white;
+	padding: 0 1% 0 1%;
+}
+
+.airQ-widget-padding {
+	padding: 0 1% 0 1%;
+}
+
+.airQ-reportChart-title {
+	color: #5D646C;
+	font-weight: bold;
+	border-bottom: 1px solid #e6e6e6;
+}
+
+.airQ-report-select-title {
+	font-weight: bold;
+	color: #979CA2;
+	float: left;
+}
+
+.airQ-report-select {
+	color: #5D646C;
+	border-radius: 0px;
+	border: 1px solid #e6e6e6;
+}
+
+.airQ-report-select-option {
+	color: #979CA2;
+}
 
 .airQ-widget-title {
-    padding: 1%;
-    line-height: 1;
-    border-bottom: 1px solid #e6e6e6;
-    color: #444;
-    font-size: 14px;
-    font-weight: 400;
-    text-transform: uppercase;
+	padding: 1%;
+	line-height: 1;
+	border-bottom: 1px solid #e6e6e6;
+	color: #5D646C;
+	font-size: 16px;
+	font-weight: 800;
+	text-transform: uppercase;
+	font-size: 16px;
 }
- 
+
+.airQ-canvas {
+	background-color: white;
+	padding: 1%;
+}
+
+.airQ-addStatistics-row {
+	font-size: 13px;
+	color: #979CA2;
+	padding: 0 2.5% 0 2.5%;
+}
+
+.airQ-addStatistics-column {
+	border-top: 1px solid #e6e6e6;
+}
+
+.airQ-addStatistics-column-s {
+	padding: 1% 1% 1% 1%;
+}
+
+.airQ-addStatistics-column-s-value {
+	color: #5D646C;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.airQ-statisticsIcon-color {
+	fill: #979CA2;
+}
