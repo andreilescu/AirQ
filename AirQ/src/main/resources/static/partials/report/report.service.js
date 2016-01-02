@@ -6,10 +6,28 @@
 	
 	function reportService() {
 	
+		// api
 		// configure function that set all fields that are needed for drawing a chart
 		this.configureCo2ChartData = configureCo2ChartData;
 		this.configureVocChartData = configureVocChartData;
 		this.configureCo2VocChartData = configureCo2VocChartData;
+		
+		// functions for additional statistic
+		// max value CO2, VOC
+//		this.getMaxCo2Value = getMaxCo2Value;
+//		this.getMaxVocValue = getMaxVocValue;
+		// min value CO2, VOC
+//		this.getMinCo2Value = getMinCo2Value;
+//		this.getMinVocValue = getMinVocValue;
+		// records number
+//		this.getRecordsCount = getRecordsCount;
+		// average interval between records
+//		this.getAverageInterval = getAverageInterval;
+		
+		// future functionality
+		// get all records by selected month, week, day		
+		// get all records between selected days
+		
 		
 //		 configure function that set all fields that are needed for drawing a chart
 		function configureCo2ChartData(station) {
