@@ -13,14 +13,6 @@
 		this.configureCo2VocChartData = configureCo2VocChartData;
 		
 		// functions for additional statistic
-		// max value CO2, VOC
-//		this.getMaxCo2Value = getMaxCo2Value;
-//		this.getMaxVocValue = getMaxVocValue;
-		// min value CO2, VOC
-//		this.getMinCo2Value = getMinCo2Value;
-//		this.getMinVocValue = getMinVocValue;
-		// records number
-//		this.getRecordsCount = getRecordsCount;
 		// average interval between records
 //		this.getAverageInterval = getAverageInterval;
 		
@@ -35,19 +27,49 @@
 				
 				// configure CO2 char data structure
 				var chartData = {};
+				var data = [];
+				var maxCo2Value = {};
+				var minCo2Value = {};
+				
 				chartData.labels = [];
 				chartData.data = []; 
 				chartData.series = ['CO2'];
-				var data = [];
+				chartData.maxCo2Value = {};
+				chartData.minCo2Value = {};
+				chartData.recordsNumber = {};
+				chartData.averageInterval = {};
 				
-				for(var i=0; i<station.values.length; i++) {
+				var size = station.values.length;
+				var recordsPeriod = {};
+				
+				for(var i=0; i<size; i++) {
 					chartData.labels[i] = station.values[i].date;
 					data[i] = angular.fromJson(station.values[i].co2);
+					maxCo2Value = getMaxValue(maxCo2Value, data[i]);
+					minCo2Value = getMinValue(minCo2Value, data[i]);
 				}
+				
+				//  getAverageRecordPeriod
+				chartData.averageInterval = getAverageRecordInterval(chartData.labels[0], chartData.labels[size-1], size);
+				
+				chartData.recordsNumber = size;
+				chartData.maxCo2Value = maxCo2Value;
+				chartData.minCo2Value = minCo2Value;
 				chartData.data.push(data);
 				return chartData;
-				
 			}
+		}
+		
+		function getAverageRecordInterval(firstRecordDate, lastRecordDate, size) {
+			firstRecordDate = new Date(firstRecordDate);
+			lastRecordDate = new Date(lastRecordDate);
+			
+			var averagePeriod = (lastRecordDate - firstRecordDate) / (size*60000);
+			
+			console.log(averagePeriod);
+			// transform to minutes
+			
+			return averagePeriod;
 		}
 		
 		function configureVocChartData(station) {
@@ -90,6 +112,22 @@
 				return chartData;
 			
 			}	
+		}
+		
+		function getMaxValue(maxValue, comparableValue) {
+			if(maxValue > comparableValue) {
+				return maxValue;
+			} else {
+				return comparableValue;
+			}
+		}
+		
+		function getMinValue(minValue, comparableValue) {
+			if(minValue < comparableValue) {
+				return minValue;
+			} else {
+				return comparableValue;
+			}
 		}
 	}
 })();

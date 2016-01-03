@@ -1,0 +1,48 @@
+<div class="row airQ-addStatistics-row">
+	<div class="col-md-12 airQ-addStatistics-column">
+		
+		<div class="col-md-3 airQ-addStatistics-column-s">
+			<div class="col-md-3 airQ-padding-l-r-0 pull-left">
+				<ng-md-icon id="trending_up-id" class="airQ-statisticsIcon-color" icon="trending_up" size="42">
+				</ng-md-icon>
+			</div>
+			<div class="col-md-9 airQ-padding-l-r-0 pull-left">
+				<div>Max Value</div>
+				<div class="airQ-addStatistics-column-s-value">{{vm.co2ChartData.maxCo2Value}}</div>
+			</div>
+		</div>
+		
+		<div class="col-md-3 airQ-addStatistics-column-s">
+			<div class="col-md-3 airQ-padding-l-r-0 pull-left">
+				<ng-md-icon id="trending_down-id" class="airQ-statisticsIcon-color" icon="trending_down" size="42">
+				</ng-md-icon>
+			</div>
+			<div class="col-md-9 airQ-padding-l-r-0 pull-left">
+				<div>Min Value</div>
+				<div class="airQ-addStatistics-column-s-value">{{vm.co2ChartData.minCo2Value}}</div>
+			</div>
+		</div>
+		
+		<div class="col-md-3 airQ-addStatistics-column-s">
+			<div class="col-md-3 airQ-padding-l-r-0 pull-left">
+				<ng-md-icon id="trending_count-id" class="airQ-statisticsIcon-color" icon="trending_up" size="42">
+				</ng-md-icon>
+			</div>
+			<div class="col-md-9 airQ-padding-l-r-0 pull-left">
+				<div>Number of records</div>
+				<div class="airQ-addStatistics-column-s-value">{{vm.co2ChartData.recordsNumber}}</div>
+			</div>
+		</div>
+		
+		<div class="col-md-3 airQ-addStatistics-column-s">
+			<div class="col-md-3 airQ-padding-l-r-0 pull-left">
+				<ng-md-icon id="trending_up-id" class="airQ-statisticsIcon-color" icon="schedule" size="42" >
+				</ng-md-icon>
+			</div>
+			<div class="col-md-9 airQ-padding-l-r-0 pull-left">
+				<div>Average interval between records</div>
+				<div class="airQ-addStatistics-column-s-value">{{vm.co2ChartData.averageInterval| number:0}} min</div>
+			</div>
+		</div>
+	</div>
+</div>
