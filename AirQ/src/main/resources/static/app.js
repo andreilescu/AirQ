@@ -2,10 +2,10 @@
 angular.module('airQ', ['ngRoute','ngMdIcons', 'ngResource', 'ngFileUpload', 'chart.js'])
 	.config(function($routeProvider) {
 				$routeProvider.when('/', {
-					redirectTo : '/mapIndex'
-				}).when('/mapIndex', {
+					redirectTo : '/map'
+				}).when('/map', {
 					controller : 'mapController',
-					templateUrl: 'partials/map/mapIndex.html',
+					templateUrl: 'partials/map/map.html',
 					controllerAs: 'vm'
 				}).when('/stations', {
 					controller : 'stationsController',
@@ -34,7 +34,7 @@ angular.module('airQ', ['ngRoute','ngMdIcons', 'ngResource', 'ngFileUpload', 'ch
 					controller : 'aboutMeController',
 					templateUrl: 'partials/about/aboutMe.html'
 				}).otherwise({
-					redirectTo : '/mapIndex'
+					redirectTo : '/map'
 				});
 });
 
