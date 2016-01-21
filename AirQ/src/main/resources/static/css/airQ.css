@@ -19,6 +19,7 @@ ng-md-icon>svg {
 }
 
 body {
+   	font-family: “Times New Roman”, Times, serif !important;
 	background-color: #F2F2F2;
 }
 
@@ -217,11 +218,40 @@ body {
 	background-color: #383838;
 }
 
+.airQ-aboutMe-titles {
+	font-size: 13px;
+	font-weight: bold;
+}
+
+.airQ-aboutMe-text {
+	font-size: 12px;
+	color: #B4B4B4;
+	margin-bottom: 4%;
+}
+
+.image-cropper {
+    width: 300px;
+	height: 300px;
+    overflow: hidden;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+    border: 7px solid white;
+}
+
+img {
+    display: inline;
+    margin: 0 auto;
+    height: 100%;
+    width: auto;
+}
+
 .airQ-fotoBackgroung {
 	width: 300px;
 	height: 300px;
-	float: right;
-	margin: 2% 2%;
+	margin:  0 35% 0 35%;
 	background-image: url(../img/AndreiLescu.jpg);
 }
 
@@ -349,6 +379,10 @@ a {
 
 .airQ-padding-left-0 {
 	padding-left: 0;
+}
+
+.airQ-border-white-2 {
+	border: 2px solid #73AD21;
 }
 
 .airQ-padding-right-0 {
