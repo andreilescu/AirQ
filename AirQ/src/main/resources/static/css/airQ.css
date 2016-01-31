@@ -19,10 +19,9 @@ ng-md-icon>svg {
 }
 
 body {
-   	font-family: “Times New Roman”, Times, serif !important;
+	font-family: “Times New Roman”, Times, serif !important;
 	background-color: #F2F2F2;
 }
-
 
 /* Media query for mobile devices */
 @media only screen and (max-width: 500px) {
@@ -66,17 +65,14 @@ body {
 	.active a {
 		color: rgba(56, 56, 56, 1);
 	}
-	
-	
+
 	/* Report page */
 	.chart {
 		width: 100% important;
 		height: 300px !important;
 	}
-	
+
 	/* Icons size must be set to min */
-	
-	
 }
 
 #menuMobile {
@@ -149,7 +145,7 @@ body {
 
 #about {
 	width: 100%;
-	height: 750px;
+	height: 1000px;
 }
 
 #blog {
@@ -230,28 +226,28 @@ body {
 }
 
 .image-cropper {
-    width: 300px;
+	width: 300px;
 	height: 300px;
-    overflow: hidden;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    -ms-border-radius: 50%;
-    -o-border-radius: 50%;
-    border-radius: 50%;
-    border: 7px solid white;
+	overflow: hidden;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	-ms-border-radius: 50%;
+	-o-border-radius: 50%;
+	border-radius: 50%;
+	border: 7px solid white;
 }
 
 img {
-    display: inline;
-    margin: 0 auto;
-    height: 100%;
-    width: auto;
+	display: inline;
+	margin: 0 auto;
+	height: 100%;
+	width: auto;
 }
 
 .airQ-fotoBackgroung {
 	width: 300px;
 	height: 300px;
-	margin:  0 35% 0 35%;
+	margin: 0 35% 0 35%;
 	background-image: url(../img/AndreiLescu.jpg);
 }
 
@@ -610,4 +606,31 @@ a {
 
 .airQ-statisticsIcon-color {
 	fill: #979CA2;
+}
+
+.airQ-center-50 {
+	margin: auto;
+	width: 50%;
+	border-bottom: 2px solid #B4B4B4;
+	padding-bottom: 2%;
+	color: #333333;
+}
+
+.airQ-calc-icon {
+	left: calc(50% - 21px);
+}
+
+.airQ-calc-text {
+	margin: 4%;
+	left: calc(15%);
+	color: #B4B4B4;
+}
+
+.airQ-calc-div-pos-1 {
+	left: calc(50% - 1px);
+	width: 2px;
+	margin: 1% 0 0.5% 0;
+	height: 15px;
+	background-color: #B4B4B4;
+	position: relative;
 }
