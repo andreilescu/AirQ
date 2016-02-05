@@ -600,9 +600,13 @@ a {
 /* About Me Page*/
 /* Title */
 #aboutMeTitle {
-	font-size: 2.3em; 
+	font-size: 1.33em; 
 	font-weight: bold;
-	padding-left: 44%;
+}
+
+.airQ-font-size-2{
+	font-size: 2em;
+	font-weight: bold;
 }
 
 
@@ -659,8 +663,8 @@ a {
 	/* About Me Page*/
 	/* Title */
 	#aboutMeTitle {
-		padding-left: 33%;
-		font-size: 2em;
+		font-size: 1em;
+		font-weight: bold;
 	}
 	
 }
@@ -668,10 +672,9 @@ a {
 
 /* Media query for tablets devices */
 @media only screen and (min-width:768 and max-width:992px) {
-	/* About Me Page*/
-	/* Title */
-	#aboutMeTitle {
-		padding-left: 35%;
-		font-size: 3em;
+	
+	#aboutMeTitle{
+		font-size: 1em; 
+		font-weight: bold;
 	}
 }
