@@ -32,7 +32,8 @@ angular.module('airQ', ['ngRoute','ngMdIcons', 'ngResource', 'ngFileUpload', 'ch
 					controllerAs : 'vm'
 				}).when('/aboutMe', {
 					controller : 'aboutMeController',
-					templateUrl: 'partials/about/aboutMe.html'
+					templateUrl: 'partials/about/aboutMe.html',
+					controllerAs : 'vm'
 				}).otherwise({
 					redirectTo : '/map'
 				});
