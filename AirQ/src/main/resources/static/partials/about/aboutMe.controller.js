@@ -41,16 +41,23 @@
 			project.name = 'Project Delticom';
 			project.client = 'NETEX';
 			project.description = 'Web shop generator for dynamically building shops. It is very flexible and powerful tool for generating the shops in different languages. ';
-			project.duration = 'Ian 2015 - Till Now 2015';
+			project.duration = 'Ian 2016 - Feb 2016';
 			
 			var project1 = {};
-			project1.name = '';
-			project1.client = '';
-			project1.description = '';
-			project1.duration = '';
+			project1.name = 'Project Skills';
+			project1.client = 'DIALOG DATA';
+			project1.description = 'Web application for employee management. This application bring you a possibility to select employee for a particular project. This possibility of filtering is implementing by matching between skills required in project and particular employee skill. At the end best matched employees are selected. Another cool thing is that using that program, management team can easily compute and print a CV of particular employee. ';
+			project1.duration = 'Nov 2015 - Ian 2015';
+			
+			var project2 = {};
+			project2.name = 'Project ItOmodular';
+			project2.client = 'BMW'; 
+			project2.description = 'Web application for managing car production projects. This application will improve development cycle of bmw auto production cycle. ';
+			project2.duration = 'Sep 2014 - May 2015';
 			
 			vm.projects.push(project);
 			vm.projects.push(project1);
+			vm.projects.push(project2);
 		}
 
 		initializeExperience();
