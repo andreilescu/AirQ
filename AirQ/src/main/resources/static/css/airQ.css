@@ -159,7 +159,6 @@ body {
 }
 
 #footer {
-	position: relative;
 	background-color: #383838;
 }
 
@@ -650,6 +649,13 @@ a {
 	margin-bottom: 1%;
 }
 
+/* Educations */
+.airQ-education-header {
+	background-color: grey;
+	height: 150px;
+	color: white;
+}
+
 /* Media query for mobile devices */
 @media only screen and (max-width: 768px) {
 	body {
@@ -714,6 +720,13 @@ a {
 	#aboutMeImage {
 		margin: 0 0 0 8.0%;
 	}
+
+	/* Educations */
+	.airQ-education-header {
+		background-color: grey;
+		height: 75px;
+		color: white;
+	}
 }
 
 /* Media query for tablets devices */
@@ -730,5 +743,12 @@ a {
 	}
 	#aboutMeImage {
 		margin: 0 0 0 9%;
+	}
+	
+		/* Educations */
+	.airQ-education-header {
+		background-color: grey;
+		height: 150px;
+		color: white;
 	}
 }
