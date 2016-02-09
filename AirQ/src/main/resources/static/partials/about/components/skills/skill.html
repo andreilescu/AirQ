@@ -1,0 +1,19 @@
+<div class="col-md-6">
+	<div class="row">
+		<span style="font-weight: bold; font-size: 1.5em;">{{skillEntry.key.name}}</span>
+	</div>
+	<div class="row">
+		<div ng-repeat="skill in skillEntry.values">
+			<div class="col-md-6 airQ-padding-left-0">
+				<div class="col-md-4 airQ-padding-l-r-0">
+					<div class="col-md-12 airQ-padding-l-r-0" style="padding-top: 18%;">{{skill.name}}</div>
+
+				</div>
+				<div class="col-md-8 airQ-padding-l-r-0">
+					<rzslider rz-slider-model="skill.value"
+						rz-slider-options="vm.slider.options"> </rzslider>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

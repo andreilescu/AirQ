@@ -33,6 +33,159 @@
 			vm.educations.push(education2);
 			vm.educations.push(education3);
 		}
+		
+		function initializeSkills() {
+			vm.skills = [];
+			
+			var skillGroup1 = {};
+			skillGroup1.name = 'Java Basics';
+			
+			var skillGroup2 = {};
+			skillGroup2.name = 'Java Advanced';
+			
+			var skillGroup3 = {};
+			skillGroup3.name = 'Web frontend';
+			
+			var skillGroup4 = {};
+			skillGroup4.name = 'Hybris';
+			
+			var skillGroup5 = {};
+			skillGroup5.name = 'DB';
+			
+			var skillsVector1 = [];
+			var skillsVector2 = [];
+			var skillsVector3 = [];
+			var skillsVector4 = [];
+			var skillsVector5 = [];
+			
+			var skill = {};
+			skill.name = 'E/Java';
+			skill.value = 70;
+			
+			
+			var skill2 = {};
+			skill2.name = 'JDBC';
+			skill2.value = 50;
+			
+			var skill3 = {};
+			skill3.name = 'Generics';
+			skill3.value = 60;
+			
+			
+			var skill4 = {};
+			skill4.name = 'Debugging';
+			skill4.value = 100;
+			
+			
+			// Skill Group 2
+			var skill5 = {};
+			skill5.name = 'E/REST';
+			skill5.value = 70;
+			
+			
+			var skill6 = {};
+			skill6.name = 'E/Apache POI';
+			skill6.value = 60;
+			
+			
+			var skill7 = {};
+			skill7.name = 'Log4J/Commons';
+			skill7.value = 50;
+			
+			
+			var skill8 = {};
+			skill8.name = 'E/JMS';
+			skill8.value = 100;
+			
+			var skill9 = {};
+			skill9.name = 'Reflection';
+			skill9.value = 40;
+			
+			// Skill Group 3
+			var skill10 = {};
+			skill10.name = 'HTML';
+			skill10.value = 40;
+			
+			var skill11 = {};
+			skill11.name = 'CSS';
+			skill11.value = 40;
+			
+			// Skill Group 4
+			var skill12 = {};
+			skill12.name = 'Commerce Trail';
+			skill12.value = 70;
+		
+			var skill13 = {};
+			skill13.name = 'Core Trail';
+			skill13.value = 70;
+		
+			// Skill Group 5
+			var skill14 = {};
+			skill14.name = 'MySQL';
+			skill14.value = 80;
+		
+			var skill15 = {};
+			skill15.name = 'Oracle';
+			skill15.value = 80;
+			
+			var skill16 = {};
+			skill16.name = 'IBM/DB2';
+			skill16.value = 70;
+			
+			var skill17 = {};
+			skill17.name = 'H2';
+			skill17.value = 80;
+			
+			// added to array
+			skillsVector1.push(skill);
+			skillsVector1.push(skill2);
+			skillsVector1.push(skill3);
+			skillsVector1.push(skill4);
+			
+			skillsVector2.push(skill5);
+			skillsVector2.push(skill6);
+			skillsVector2.push(skill7);
+			skillsVector2.push(skill8);
+			skillsVector2.push(skill9);
+			
+			skillsVector3.push(skill10);
+			skillsVector3.push(skill11);
+			
+			skillsVector4.push(skill12);
+			skillsVector4.push(skill13);
+			
+			skillsVector5.push(skill14);
+			skillsVector5.push(skill15);
+			skillsVector5.push(skill16);
+			skillsVector5.push(skill17);
+			
+			
+			var skillEntry1 = {};
+			skillEntry1.key = skillGroup1;
+			skillEntry1.values = skillsVector1;
+			
+			var skillEntry2 = {};
+			skillEntry2.key = skillGroup2;
+			skillEntry2.values = skillsVector2;
+			
+			var skillEntry3 = {};
+			skillEntry3.key = skillGroup3;
+			skillEntry3.values = skillsVector3;
+			
+			var skillEntry4 = {};
+			skillEntry4.key = skillGroup4;
+			skillEntry4.values = skillsVector4;
+			
+			var skillEntry5 = {};
+			skillEntry5.key = skillGroup5;
+			skillEntry5.values = skillsVector5;
+			
+			vm.skills.push(skillEntry1);
+			vm.skills.push(skillEntry2);
+			vm.skills.push(skillEntry3);
+			vm.skills.push(skillEntry4);
+			vm.skills.push(skillEntry5);
+		}
 
 		vm.slider = {
 			value : 100,
@@ -80,6 +233,7 @@
 
 		initializeExperience();
 		initializeEducation();
+		initializeSkills();
 	}
 	;
 })();

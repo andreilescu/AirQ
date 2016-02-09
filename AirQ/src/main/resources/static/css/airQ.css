@@ -321,12 +321,12 @@ a {
 	margin: 2% 0 0 0;
 }
 
-.airQ-padding-left-0 {
-	padding-left: 0;
-}
-
 .airQ-border-white-2 {
 	border: 2px solid #73AD21;
+}
+
+.airQ-padding-left-0 {
+	padding-left: 0 !important;
 }
 
 .airQ-padding-right-0 {
@@ -334,8 +334,8 @@ a {
 }
 
 .airQ-padding-l-r-0 {
-	padding-left: 0;
-	padding-right: 0;
+	padding-left: 0 !important;
+	padding-right: 0 !important;
 }
 
 .airQ-margin-l-r-0 {
