@@ -8,7 +8,7 @@
 
 	function aboutMeController($scope) {
 		var vm = this;
-
+		
 		function initializeEducation() {
 			vm.educations = [];
 			var education = {};
@@ -34,6 +34,24 @@
 			vm.educations.push(education3);
 		}
 
+		vm.slider = {
+			value : 100,
+			options : {
+				showSelectionBar : true,
+				getSelectionBarColor : function(value) {
+					if(value <= 25) 
+						return '#383838';
+					if (value <= 50)
+						return 'grey';
+					if (value <= 75)
+						return '#B5B5B5';
+					if (value <= 100)
+						return '#F2F2F2';
+					return '#2AE02A';
+				}
+			}
+		};
+
 		function initializeExperience() {
 			vm.projects = [];
 
@@ -42,19 +60,19 @@
 			project.client = 'NETEX';
 			project.description = 'Web shop generator for dynamically building shops. It is very flexible and powerful tool for generating the shops in different languages. ';
 			project.duration = 'Ian 2016 - Feb 2016';
-			
+
 			var project1 = {};
 			project1.name = 'Project Skills';
 			project1.client = 'DIALOG DATA';
 			project1.description = 'Web application for employee management. This application bring you a possibility to select employee for a particular project. This possibility of filtering is implementing by matching between skills required in project and particular employee skill. At the end best matched employees are selected. Another cool thing is that using that program, management team can easily compute and print a CV of particular employee. ';
 			project1.duration = 'Nov 2015 - Ian 2015';
-			
+
 			var project2 = {};
 			project2.name = 'Project ItOmodular';
-			project2.client = 'BMW'; 
+			project2.client = 'BMW';
 			project2.description = 'Web application for managing car production projects. This application will improve development cycle of bmw auto production cycle. ';
 			project2.duration = 'Sep 2014 - May 2015';
-			
+
 			vm.projects.push(project);
 			vm.projects.push(project1);
 			vm.projects.push(project2);

@@ -330,7 +330,7 @@ a {
 }
 
 .airQ-padding-right-0 {
-	padding-right: 0;
+	padding-right: 0 !important;
 }
 
 .airQ-padding-l-r-0 {
