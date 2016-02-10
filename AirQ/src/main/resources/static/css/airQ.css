@@ -657,9 +657,16 @@ a {
 }
 
 #aboutMeInfo {
-	height:100vh;
+	height: 100vh;
 }
 
+#aboutMeSkills {
+	height: 100vh;
+}
+
+#aboutMeExperiences {
+	height: 100vh;
+}
 
 /* Media query for mobile devices */
 @media only screen and (max-width: 768px) {
@@ -749,8 +756,8 @@ a {
 	#aboutMeImage {
 		margin: 0 0 0 9%;
 	}
-	
-		/* Educations */
+
+	/* Educations */
 	.airQ-education-header {
 		background-color: grey;
 		height: 150px;
