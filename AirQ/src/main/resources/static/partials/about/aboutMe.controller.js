@@ -186,10 +186,15 @@
 			vm.skills.push(skillEntry4);
 			vm.skills.push(skillEntry5);
 		}
-
+		
+		vm.min = 0;
+		
 		vm.slider = {
+			
 			value : 100,
 			options : {
+				floor: 0,
+		        ceil: 100,
 				showSelectionBar : true,
 				getSelectionBarColor : function(value) {
 					if(value <= 25) 

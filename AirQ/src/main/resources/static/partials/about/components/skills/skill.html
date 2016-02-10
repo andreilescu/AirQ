@@ -5,12 +5,15 @@
 	<div class="row">
 		<div ng-repeat="skill in skillEntry.values">
 			<div class="col-md-6 airQ-padding-left-0">
-				<div class="col-md-4 airQ-padding-l-r-0">
-					<div class="col-md-12 airQ-padding-l-r-0" style="padding-top: 18%;">{{skill.name}}</div>
+				<div class="col-md-5 airQ-padding-l-r-0">
+					<div class="col-md-12 airQ-padding-l-r-0 pull-right" style="padding-top: 18%;">
+						<span class="pull-right" style="font-size: 0.9em; margin-right: 6%;">{{skill.name | limitTo: 12}}{{skill.name.lenght>10 ? "..." : ""}}</span>
+					</div>
 
 				</div>
-				<div class="col-md-8 airQ-padding-l-r-0">
-					<rzslider rz-slider-model="skill.value"
+				<div class="col-md-7 airQ-padding-l-r-0">
+					<rzslider 
+						rz-slider-model="skill.value"
 						rz-slider-options="vm.slider.options"> </rzslider>
 				</div>
 			</div>
