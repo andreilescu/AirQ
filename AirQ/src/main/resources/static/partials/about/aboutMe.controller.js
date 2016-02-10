@@ -15,7 +15,7 @@
 			education.period = '1998/2010';
 			education.type = 'High School';
 			education.title = 'Nicolae Iorga';
-			education.description = 'High School Nicolae Iorga. This lyceum was the first place where are discover a lot of interesting and very useful things. Not all lectures were loved by me. My best lecture for me in that period was Physical Education.';
+			education.description = 'High School Nicolae Iorga. This lyceum was the first place where are discover a lot of interesting and very useful things. Not all lectures were loved by me.';
 
 			var education2 = {};
 			education2.period = '2010/2014';
