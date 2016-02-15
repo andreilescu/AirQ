@@ -195,7 +195,8 @@
 			options : {
 				floor: 0,
 		        ceil: 100,
-				showSelectionBar : true,
+				showSelectionBar: true,
+				readOnly: true,
 				getSelectionBarColor : function(value) {
 					if(value <= 25) 
 						return '#383838';
