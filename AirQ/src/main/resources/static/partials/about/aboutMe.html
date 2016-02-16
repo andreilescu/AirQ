@@ -1,62 +1,10 @@
 <script type="text/javascript">
-	$(document)
-			.ready(
-					function() {
-
-						/*
-						 * Plugin intialization
-						 */
-						$('#pagepiling')
-								.pagepiling(
-										{
-											menu : null,
-											anchors : [
-													'/aboutMe',
-													'/skills',
-													'/experiences',
-													'/educations' ],
-											sectionsColor : [ 'white',
-													'#ee005a', '#2C3E50',
-													'#39C' ],
-											navigation : {
-												'position' : 'right',
-												'tooltips' : [ 'About Me Info',
-														'Skills',
-														'Experiences',
-														'Educations' ]
-											},
-											afterRender : function() {
-												$('#pp-nav').addClass('custom');
-											},
-											afterLoad : function(anchorLink,
-													index) {
-												if (index > 1) {
-													$('#pp-nav').removeClass(
-															'custom');
-												} else {
-													$('#pp-nav').addClass(
-															'custom');
-												}
-											}
-										});
-
-						/*
-						 * Internal use of the demo website
-						 */
-						$('#showExamples').click(function(e) {
-							e.stopPropagation();
-							e.preventDefault();
-							$('#examplesList').toggle();
-						});
-
-						$('html').click(function() {
-							$('#examplesList').hide();
-						});
-					});
+	$(document).ready(function() {
+		$('#pagepiling').pagepiling();
+	});
 </script>
 
 <div id="about" style="background-color: #EDEDED;">
-
 	<div id="pagepiling">
 		<div class="section"
 			ng-include="'partials/about/components/info/aboutMeInfo.html'"
@@ -71,7 +19,6 @@
 			ng-include="'partials/about/components/education/educations.html'"
 			id="section4"></div>
 	</div>
-
 </div>
 
 
