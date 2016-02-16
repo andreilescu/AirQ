@@ -1,4 +1,5 @@
-<div id="aboutMeExperiences"  class="col-md-12" style="background-color: #EDEDED;">
+<div id="aboutMeExperiences" class="col-md-12"
+	style="background-color: #EDEDED;">
 	<div class="container">
 		<div class="col-md-12" style="padding: 8% 0%;">
 			<div class="col-md-12">
@@ -23,8 +24,11 @@
 				</div>
 
 				<div ng-repeat="project in vm.projects">
-					<div
-						ng-include="'partials/about/components/experience/experience.html'" />
+					<div ng-if="$even"
+						ng-include="'partials/about/components/experience/evenExperience.html'" />
+						
+					<div ng-if="$odd"
+						ng-include="'partials/about/components/experience/oddExperience.html'" />
 				</div>
 			</div>
 		</div>

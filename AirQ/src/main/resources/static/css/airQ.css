@@ -81,9 +81,9 @@ body {
 
 .airQ-logo-text-size {
 	font-weight: bold;
-	font-size: 65px;
-	!
-	important
+	font-size: 65px !
+	important;
+	
 }
 
 #map {
@@ -98,10 +98,6 @@ body {
 
 #blog {
 	width: 100%;
-	height: 750px;
-}
-
-#blogDetail {
 	height: 750px;
 }
 

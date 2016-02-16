@@ -242,5 +242,4 @@
 		initializeSkills();
 	};
 	
-	
 })();
