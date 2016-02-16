@@ -34,7 +34,21 @@ angular.module('airQ', ['ngRoute','ngMdIcons', 'ngResource', 'ngFileUpload', 'ch
 					controller : 'aboutMeController',
 					templateUrl: 'partials/about/aboutMe.html',
 					controllerAs : 'vm'
-				}).otherwise({
+				}).when('/skills', {
+					controller : 'aboutMeController',
+					templateUrl: 'partials/about/components/skills/skills.html',
+					controllerAs : 'vm'
+				}).when('/experiences', {
+					controller : 'aboutMeController',
+					templateUrl: 'partials/about/components/experience/experiences.html',
+					controllerAs : 'vm'
+				}).when('/educations', {
+					controller : 'aboutMeController',
+					templateUrl: 'partials/about/components/education/educations.html',
+					controllerAs : 'vm'
+				})
+				
+				.otherwise({
 					redirectTo : '/map'
 				});
 });
