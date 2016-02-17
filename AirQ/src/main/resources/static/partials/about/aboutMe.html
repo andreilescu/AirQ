@@ -1,3 +1,8 @@
+<link rel="stylesheet" href="lib/bower_components/pagePiling.js/jquery.pagepiling.css" />
+
+<script src="lib/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="lib/bower_components/pagePiling.js/jquery.pagepiling.min.js"></script>
+
 <script type="text/javascript">
 	$(document).ready(function() {
 		$('#pagepiling').pagepiling();
@@ -15,8 +20,8 @@
 		<div class="section"
 			ng-include="'partials/about/components/experience/experiences.html'"
 			id="section3"></div>
-		<div class="section"
-			ng-include="'partials/about/components/education/educations.html'"
-			id="section4"></div>
+		<div class="section" id="section4">
+			<div ng-include="'partials/about/components/education/educations.html'"></div>
+		</div>
 	</div>
 </div>

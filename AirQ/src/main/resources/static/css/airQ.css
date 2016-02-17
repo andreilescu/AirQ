@@ -83,7 +83,6 @@ body {
 	font-weight: bold;
 	font-size: 65px !
 	important;
-	
 }
 
 #map {
@@ -565,6 +564,38 @@ a {
 	color: #333333;
 }
 
+.airQ-aboutMe-header-content {
+	margin: auto;
+	width: 50%;
+	border-bottom: 2px solid #B4B4B4;
+	padding: 1% 2% 2% 2%;
+	color: #333333;
+}
+
+.airQ-aboutMe-header-title {
+	font-weight: bold;
+	font-size: 32px;
+	padding-left: 37%;
+}
+
+.airQ-color-white {
+	color: white;
+}
+
+.airQ-color-grey-b4b4b4 {
+	color: #B4B4B4;
+}
+
+.airQ-fill-grey-b4b4b4 {
+	fill: #B4B4B4;
+}
+
+.airQ-aboutMe-icon {
+	margin: auto;
+	position: relative;
+	padding: 0 !important;
+}
+
 .airQ-calc-icon {
 	left: calc(50% - 21px);
 }
@@ -637,6 +668,11 @@ a {
 	margin: 0 0 0 5.0%;
 }
 
+.airQ-aboutMe-contactMe-page {
+	background-color: #3C323B;
+	margin: 0px;
+}
+
 /* Experience */
 .aboutMeCompany-experience-title {
 	font-size: 1.25em;
@@ -662,6 +698,39 @@ a {
 
 #aboutMeExperiences {
 	height: 100vh;
+}
+
+#aboutMeEducations {
+	height: 100vh;
+}
+
+#aboutMecontactMe {
+	height: 100vh;
+}
+
+.aboutMe-contactMe-input-l {
+	background-color: #3C323B;
+	border: #B4B4B4 1px solid;
+	width: 85%;
+	height: 2.5em;
+	margin: 10% 0% 5% 7%;
+}
+
+.aboutMe-contactMe-input-r {
+	background-color: #3C323B;
+	border: #E2e2e2 1px solid;
+	width: 85%;
+	height: 2.5em;
+	margin: 10% 0% 5% 7%
+}
+
+.aboutMe-contactMe-textArea {
+	width: 92.5%;
+	margin-left: 3.5%;
+	margin-right: 3.5%;
+	height: 100px;
+	background-color: #3C323B;
+	border: #E2e2e2 1px solid;
 }
 
 /* Media query for mobile devices */

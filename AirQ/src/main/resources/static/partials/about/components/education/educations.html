@@ -1,25 +1,24 @@
-<div class="col-md-12"
-	style="padding: 1% 2%; background-color: #DDDDDD;">
-	<div class="container">
-		<div class="col-md-12">
-			<div class="airQ-center-50"
-				style="font-size: 32px; font-weight: bold;">
+<div id="aboutMeEducations">
+	<div class="col-md-12"
+		style="padding: 1% 2%; background-color: #DDDDDD;">
+		<div class="container">
+			<div class="col-md-12">
+				<div class="airQ-center-50"
+					style="font-size: 32px; font-weight: bold;">
 
-				<div style="padding-left: 37%">Education</div>
-				<div class="col-md-1 airQ-calc-icon"
-					style="margin: auto; position: relative; padding: 0">
-					<ng-md-icon id="school" icon="school" size="42"
-						style="fill:#B4B4B4;"></ng-md-icon>
+					<div style="padding-left: 37%">Education</div>
+					<div class="col-md-1 airQ-calc-icon"
+						style="margin: auto; position: relative; padding: 0">
+						<ng-md-icon id="school" icon="school" size="42"
+							style="fill:#B4B4B4;"></ng-md-icon>
+					</div>
 				</div>
 			</div>
+			<div ng-repeat="education in vm.educations">
+				<div
+					ng-include="'partials/about/components/education/education.html'" />
+			</div>
 		</div>
-
-
-		<div ng-repeat="education in vm.educations">
-			<div
-				ng-include="'partials/about/components/education/education.html'" />
-		</div>
-
-
 	</div>
+	<div ng-include="'partials/about/components/contactMe/contactMe.html'"></div>
 </div>
