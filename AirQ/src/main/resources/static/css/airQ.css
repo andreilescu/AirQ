@@ -19,7 +19,8 @@ ng-md-icon>svg {
 }
 
 body {
-	font-family: “Times New Roman”, Times, serif !important;
+	font-family: 'Roboto', sans-serif !important;
+	/* font-family: “Times New Roman”, Times, serif !important; */
 	background-color: #F2F2F2;
 }
 
@@ -574,7 +575,7 @@ a {
 
 .airQ-aboutMe-header-title {
 	font-weight: bold;
-	font-size: 32px;
+	font-size: 2em;
 	padding-left: 37%;
 }
 
@@ -684,8 +685,25 @@ a {
 /* Educations */
 .airQ-education-header {
 	background-color: grey;
-	height: 150px;
 	color: white;
+}
+
+.airQ-education-content {
+	height: 140px;
+	margin-top: 0.25%;
+	margin-bottom: 0.25%;
+}
+
+.airQ-education-content-right-header {
+	font-size: 1.15em;
+	font-weight: bold;
+	color: #333333;
+}
+
+.airQ-education-content-right-body {
+	font-size: 0.9em;
+	color: #B4B4B4;
+	overflow: hidden;
 }
 
 #aboutMeInfo {
@@ -710,27 +728,27 @@ a {
 
 .aboutMe-contactMe-input-l {
 	background-color: #3C323B;
-	border: #B4B4B4 1px solid;
-	width: 85%;
-	height: 2.5em;
-	margin: 10% 0% 5% 7%;
+    border: #B4B4B4 1px solid;
+    width: 92%;
+    height: 2.5em;
+    margin: 10% 0% 9% 6.5%;
 }
 
 .aboutMe-contactMe-input-r {
-	background-color: #3C323B;
-	border: #E2e2e2 1px solid;
-	width: 85%;
-	height: 2.5em;
-	margin: 10% 0% 5% 7%
+    background-color: #3C323B;
+    border: #B4B4B4 1px solid;
+    width: 92%;
+    height: 2.5em;
+    margin: 10% 0% 5% 1%;
 }
 
 .aboutMe-contactMe-textArea {
-	width: 92.5%;
-	margin-left: 3.5%;
-	margin-right: 3.5%;
-	height: 100px;
-	background-color: #3C323B;
-	border: #E2e2e2 1px solid;
+	width: 93.5%;
+    margin-left: 3%;
+    margin-right: 3.5%;
+    height: 100px;
+    background-color: #3C323B;
+    border: #B4B4B4 1px solid;
 }
 
 /* Media query for mobile devices */

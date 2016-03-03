@@ -9,6 +9,8 @@
 	function aboutMeController($scope) {
 		var vm = this;
 		
+//		vm.initializePagepiling = initializePagepiling;
+		
 		function initializeEducation() {
 			vm.educations = [];
 			var education = {};
@@ -236,10 +238,21 @@
 			vm.projects.push(project1);
 			vm.projects.push(project2);
 		}
-
+		
+//		function initializePagepiling() {
+//			var e = angular.element(document.querySelector('#pagepiling'));
+//			var e1 = angular.element($('#pagepiling'));
+//			console.log(e1);
+//			$(e1).pagepiling();
+//
+//		}
+		
 		initializeExperience();
 		initializeEducation();
 		initializeSkills();
+//		initializePagepiling();
 	};
+	
+
 	
 })();

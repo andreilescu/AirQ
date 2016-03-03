@@ -1,4 +1,4 @@
-<div id="aboutMeSkills" class="col-md-12" style="background-color: white;">
+<div id="aboutMeSkills" class="col-md-12" style="background-color: #EDE7E7;">
 	<div class="container">
 		<div class="col-md-12">
 			<div class="airQ-center-50"
@@ -15,8 +15,11 @@
 				<div class="col-md-1"></div>
 				<div class="col-md-10">
 					<div ng-repeat="skillEntry in vm.skills">
-						<div
-							ng-include="'partials/about/components/skills/skill.html'">
+						<div ng-if="$odd"
+							ng-include="'partials/about/components/skills/oddSkill.html'">
+						</div>
+						<div ng-if="$even"
+							ng-include="'partials/about/components/skills/evenSkill.html'">
 						</div>
 					</div>
 				</div>

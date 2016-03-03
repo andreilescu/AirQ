@@ -1,6 +1,6 @@
 <div id="aboutMeEducations">
 	<div class="col-md-12"
-		style="padding: 1% 2%; background-color: #DDDDDD;">
+		style="padding: 1% 0%; background-color: #DDDDDD;">
 		<div class="container">
 			<div class="col-md-12">
 				<div class="airQ-center-50"
@@ -14,11 +14,17 @@
 					</div>
 				</div>
 			</div>
-			<div ng-repeat="education in vm.educations">
-				<div
-					ng-include="'partials/about/components/education/education.html'" />
+			<div class="col-md-12" style="margin-bottom:1%;">
+				<div class="col-md-1"></div>
+				<div class="col-md-10">
+					<div ng-repeat="education in vm.educations">
+						<div
+							ng-include="'partials/about/components/education/education.html'" />
+					</div>
+				</div>
+				<div class="col-md-1"></div>
 			</div>
 		</div>
+		<div ng-include="'partials/about/components/contactMe/contactMe.html'"></div>
 	</div>
-	<div ng-include="'partials/about/components/contactMe/contactMe.html'"></div>
 </div>
