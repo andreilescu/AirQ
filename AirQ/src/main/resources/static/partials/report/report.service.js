@@ -65,9 +65,7 @@
 			lastRecordDate = new Date(lastRecordDate);
 			
 			var averagePeriod = (lastRecordDate - firstRecordDate) / (size*60000);
-			
 			console.log(averagePeriod);
-			// transform to minutes
 			
 			return averagePeriod;
 		}

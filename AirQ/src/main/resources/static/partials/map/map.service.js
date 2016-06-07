@@ -12,6 +12,9 @@
 			
 		var stations = [];
 		var map = {};
+		
+		//	 	COLOURS PALLET	GREEN 		  YELLOW 	 	ORANGE		RED 		  DARKRED		VIOLET		 BLACK		    WHITE
+    	var colors = new Array(  "2AFF31",  "F3FF35",	"FF8F35",	"F43D3D",	"8C0F0F",	"622BD8",  	"000000", 	"FFFFFF");
 	
 		// api 
 		this.convertSpreadsheetToStationData = convertSpreadsheetToStationData;
@@ -37,24 +40,21 @@
 				dataRetrieved.then(
 			  	
 						function(data) {
-//								 retrieve feeds from data
+						//	retrieve feeds from data
 						var feeds = data.data.feed.entry;
-						angular
-								.forEach(
-										feeds,
-										function(feed) {
-											if (stations.length === 0) {
-												addStation(feed, stations);
-											} else {
-												var index = getIndexOfStation(stations, feed.gsx$stationname.$t);
-												if(index === -1) {
-													addStation(feed, stations);
-												} else {
-													var station = stations[index];
-													appendValuesToStation(station, feed);
-												}	
-											}
-										});
+						angular.forEach(feeds, function(feed) {
+													if (stations.length === 0) {
+														addStation(feed, stations);
+													} else {
+														var index = getIndexOfStation(stations, feed.gsx$stationname.$t);
+														if(index === -1) {
+															addStation(feed, stations);
+														} else {
+															var station = stations[index];
+															appendValuesToStation(station, feed);
+														}	
+													}
+												});
 						console.log(stations);
 	  		  	}, 
 	  		  	function(data) {
@@ -120,7 +120,7 @@
 			var deferred = $q.defer();
 			
 			setTimeout(function() {
-				deferred.notify('About to map ');
+				deferred.notify('About to map');
 				var mapCanvas = document.getElementById('map');
 				var mapOptions = {
 					center : new google.maps.LatLng(45.746515, 21.227546),
@@ -149,21 +149,64 @@
 		}
 		
 		function drawMarkerOnMap(map, station) {
-			var markerCoordinates = {lat: angular.fromJson(station.coordinates.latitude), lng: angular.fromJson(station.coordinates.longitude)};
+			
+			var longitude = angular.fromJson(station.coordinates.longitude);
+			var latitude = angular.fromJson(station.coordinates.latitude);
+			var position = new google.maps.LatLng(latitude, longitude);
+			
 			var stationName = station.stationName;
+			var co2Value = station.values[station.values.length-1].co2;
+			
 			var marker = new google.maps.Marker(
 					{
-						position: new google.maps.LatLng(markerCoordinates),
+						position: position,
 						map: map,
-						title: stationName
+						title: stationName,
+						animation: google.maps.Animation.DROP,
+						icon: choiseColorForIcon(co2Value)
 					});
-			
-			var infoWindow = new google.maps.InfoWindow();
 			
 			google.maps.event.addListener(marker, 'click', function () {
 				window.location.href = '/#/report/' + stationName;
 			});
 		}
+		
+	    function choiseColorForIcon(data) {
+	    	//	Green 		350 - 450 ppm												
+	    	if(data < 450 && data > 350){  
+	    	return	setColorForIcon(0);
+	    	}
+	    	//	Yellow 		< 600 ppm			
+	    	else if(data < 600){
+			return	setColorForIcon(1);
+	    	}
+	    	// 	Orange 		600 - 900 ppm
+	    	else if(data > 600 && data < 900){
+			return	setColorForIcon(2);
+	    	}
+	    	//  Red			900 - 1000 ppm	
+	    	else if(data < 1000 && data > 900){
+			return	setColorForIcon(3);
+	    	}
+	    	//	Dark Red 	1000 - 2500 ppm
+	    	else if(data > 1000 && data < 2500){
+			return	setColorForIcon(4);
+	    	}
+	    	//	Violet 		2500 - 5000 ppm	
+	    	else if(data > 2500 && data < 5000){
+	    	return	setColorForIcon(5);
+	    	}
+	    	
+	    }
+	    
+	    function setColorForIcon(index) {
+			
+	    	var icon = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + colors[index],
+	        new google.maps.Size(21, 34),
+	        new google.maps.Point(0,0),
+	        new google.maps.Point(10, 34));
+	    	return icon;	
+	    }
 		
 		function addStation(feed, stations) {
 			var station = {};
