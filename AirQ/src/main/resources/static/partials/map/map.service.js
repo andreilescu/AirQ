@@ -13,8 +13,9 @@
 		var stations = [];
 		var map = {};
 		
-		//	 	COLOURS PALLET	GREEN 		  YELLOW 	 	ORANGE		RED 		  DARKRED		VIOLET		 BLACK		    WHITE
-    	var colors = new Array(  "2AFF31",  "F3FF35",	"FF8F35",	"F43D3D",	"8C0F0F",	"622BD8",  	"000000", 	"FFFFFF");
+		// 		COLOURS UNDERSTANDANDING	GOOD	   MODERATE		UNHEALTHY    VUNHEALTHY  HAZARDOUS   EMERGENCY 
+		//	 	COLOURS PALLET	  			GREEN      YELLOW 	 	ORANGE		 RED 		 DARKRED     VIOLET		 BLACK		 WHITE
+    	var colors = new Array(  			"2AFF31",  "F3FF35",	"FF9966",	"CC0033",	 "A00000",	"A02C7F",  	"000000", 	"FFFFFF");
 	
 		// api 
 		this.convertSpreadsheetToStationData = convertSpreadsheetToStationData;
@@ -55,7 +56,6 @@
 														}	
 													}
 												});
-						console.log(stations);
 	  		  	}, 
 	  		  	function(data) {
 	  		  		console.log("Spreadsheet: " + spreadsheet + " not found");

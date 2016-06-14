@@ -36,8 +36,6 @@
 				vm.co2ChartData = reportService.configureCo2ChartData(vm.station);
 				vm.vocChartData = reportService.configureVocChartData(vm.station);
 				vm.co2vocChartData = reportService.configureCo2VocChartData(vm.station);
-				
-				console.log(vm.co2ChartData);
 			});
 			
 		}

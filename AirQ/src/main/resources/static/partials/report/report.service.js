@@ -30,6 +30,7 @@
 				var data = [];
 				var maxCo2Value = {};
 				var minCo2Value = {};
+				var size = station.values.length;
 				
 				chartData.labels = [];
 				chartData.data = []; 
@@ -39,8 +40,7 @@
 				chartData.recordsNumber = {};
 				chartData.averageInterval = {};
 				
-				var size = station.values.length;
-				var recordsPeriod = {};
+				
 				
 				for(var i=0; i<size; i++) {
 					chartData.labels[i] = station.values[i].date;
@@ -49,9 +49,8 @@
 					minCo2Value = getMinValue(minCo2Value, data[i]);
 				}
 				
-				//  getAverageRecordPeriod
+				// populate with dates
 				chartData.averageInterval = getAverageRecordInterval(chartData.labels[0], chartData.labels[size-1], size);
-				
 				chartData.recordsNumber = size;
 				chartData.maxCo2Value = maxCo2Value;
 				chartData.minCo2Value = minCo2Value;
@@ -60,35 +59,51 @@
 			}
 		}
 		
-		function getAverageRecordInterval(firstRecordDate, lastRecordDate, size) {
-			firstRecordDate = new Date(firstRecordDate);
-			lastRecordDate = new Date(lastRecordDate);
-			
-			var averagePeriod = (lastRecordDate - firstRecordDate) / (size*60000);
-			console.log(averagePeriod);
-			
-			return averagePeriod;
-		}
 		
 		function configureVocChartData(station) {
 			if(station != null && station.values != null) {
 				
+				
 				// configure VOC char data structure
 				var chartData = {};
+				var data = [];
+				var maxVocValue = {};
+				var minVocValue = {};
+				var size = station.values.length;
+				
+				// configure VOC char data structure
 				chartData.labels = [];
 				chartData.data = []; 
 				chartData.series = ['VOC'];
-				var data = [];
+				
 				
 				for(var i=0; i<station.values.length; i++) {
 					chartData.labels[i] = station.values[i].date;
 					data[i] = angular.fromJson(station.values[i].voc);
+					maxVocValue = getMaxValue(maxVocValue, data[i]);
+					minVocValue = getMinValue(minVocValue, data[i]);
 				}
+				
+				
+				// populate with dates
+				chartData.averageInterval = getAverageRecordInterval(chartData.labels[0], chartData.labels[size-1], size);
+				chartData.recordsNumber = size;
+				chartData.maxVocValue = maxVocValue;
+				chartData.minVocValue = minVocValue;
 				chartData.data.push(data);
 				return chartData;
 				
 			}
 		}
+		
+		function getAverageRecordInterval(firstRecordDate, lastRecordDate, size) {
+			firstRecordDate = new Date(firstRecordDate);
+			lastRecordDate = new Date(lastRecordDate);
+			
+			var averagePeriod = (lastRecordDate - firstRecordDate) / (size*60000);
+			return averagePeriod;
+		}
+
 		
 		function configureCo2VocChartData(station) {
 			if(station != null && station.values != null) {
