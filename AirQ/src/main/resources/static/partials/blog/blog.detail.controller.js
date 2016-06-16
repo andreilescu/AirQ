@@ -5,9 +5,9 @@
 		.module('airQ')
 		.controller('blogDetailController', blogDetailController);
 	
-	blogDetailController.$inject = ['$routeParams', 'blogFactory', 'Upload'];
+	blogDetailController.$inject = ['$routeParams', 'blogFactory', 'Upload', 'blogImagesFactory'];
  
-	function blogDetailController($routeParams, blogFactory, Upload) {
+	function blogDetailController($routeParams, blogFactory, Upload, blogImagesFactory) {
 		var vm = this;
 		vm.isEditable = false;
 		vm.blog = {};
@@ -15,6 +15,15 @@
 		vm.loadBlog = function() {
 			blogFactory.oneById.get({id:$routeParams.blogId}, function success(data) {
 				vm.blog = data;
+				
+				blogImagesFactory.thumbnail.get({id:vm.blog.id}, function succes(data) {
+					if(data.thumbnail == null){
+						vm.blog.photo = 'img/blog-default-thumb.png';
+					}
+					else{
+						vm.blog.photo = 'data:image/png;base64,' + data.thumbnail;
+					}
+				});	
 			});
 		}
 		

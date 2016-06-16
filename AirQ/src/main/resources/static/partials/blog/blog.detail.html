@@ -1,3 +1,4 @@
+
 <div id="blogDetail" class="container" ng-style="style()" resize>
 
 	<div class="container" style="padding: 20px;">
@@ -5,10 +6,11 @@
 		<div class="row">
 			<div id="readOnlyDiv" ng-hide="vm.isEditable">
 				<div class="col-md-3 et-main-image airQ-fotoBackgroungBlog"">
-					<a href=""></a>
+					<img src="{{vm.blog.photo}}" class="img-responsive skillz-employee-image-thumb pull-left">
+					<!-- <a href=""></a> -->
 					<div class="meta-info">
 						<div class="meta-date">
-							<span class="month">03 Dec {{vm.blog.createdDate}}</span>
+							<span class="month">{{vm.blog.createdDate | date:'dd MMM'}}</span>
 						</div>
 					</div>
 				</div> 
@@ -28,7 +30,10 @@
 						Edit</a>
 					<a href="#/blog" class="btn btn-default airQ-blogButton"
 						ng-click="vm.deleteBlog()"> 
-						Delete</a>	
+						Delete
+					</a>
+					<div style="margin: 35px; position: absolute;" class="fb-share-button" data-href="https://local.royalcopenhagen.com:9002/rc/" data-layout="button" data-mobile-iframe="true">
+				   </div>
 				</div>
 			</div>
 			

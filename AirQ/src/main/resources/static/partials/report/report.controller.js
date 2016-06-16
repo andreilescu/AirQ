@@ -3,8 +3,8 @@
 	.controller('reportController', reportController);
 	
 	
-	reportController.$inject = ['$routeParams', 'mapService', 'reportService'];
-	function reportController($routeParams, mapService, reportService) {
+	reportController.$inject = ['$routeParams', '$window', 'mapService', 'reportService'];
+	function reportController($routeParams, $window, mapService, reportService) {
 
 		var vm = this;
 		vm.stations = [];
@@ -18,7 +18,8 @@
 		// api
 		vm.getStationByName = getStationByName;
 		// internal
-
+		vm.printReport = printReport;
+		
 		function getStationByName(selectedStationName) {
 			
 			if($routeParams.stationName != null) {
@@ -39,7 +40,11 @@
 			});
 			
 		}
-
+	
+		function printReport() {
+		    window.print();
+		}
+		
 		getStationByName(vm.selectedStationName);
 	}
 })();

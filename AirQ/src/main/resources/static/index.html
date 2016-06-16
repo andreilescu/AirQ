@@ -54,6 +54,7 @@
 <script src="js/directive/resize.directive.js"></script>
 <script src="js/directive/uploadfile.directive.js"></script>
 <script src="js/directive/upvote.directive.js"></script>
+<script src="js/directive/share_facebook.js"></script>
 
 </head>
 
@@ -108,7 +109,7 @@
 								</div>
 								<div class="airQ-flex-item" ng-class="{'active' :isActive('/blog')}">
 									<div class="airQ-menuItem-div">
-										<a class="airQ-menuItemColor" href="/#/blog">Blog </a>
+										<a class="airQ-menuItemColor" href="/#/blog">Blogs </a>
 									</div>
 									<div style="width: 50%; margin-left: 25%;" ng-class="{'airQ-menuItem-selected' :isActive('/blog')}">
 									</div>
@@ -137,7 +138,7 @@
 						<li class="airQ-mobileMenuList-item" ng-class="{'active' :isActive('/map')}"><a href="/#/map">Stations</a></li>
 						<li class="airQ-mobileMenuList-item" ng-class="{'active' :isActive('/report')}"> <a href="/#/report">Reports</a></li>
 						<li class="airQ-mobileMenuList-item"><a href="">News</a></li>
-						<li class="airQ-mobileMenuList-item"><a href="">Contact Us</a></li>
+						<li class="airQ-mobileMenuList-item" ng-class="{'active' :isActive('/blog')}"><a href="">Blogs</a></li>
 						<li class="airQ-mobileMenuList-item" ng-class="{'active' :isActive('/aboutMe')}"><a href="/#/aboutMe">About Me</a></li>
 					</ul>
 				</div>

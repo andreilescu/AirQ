@@ -118,12 +118,12 @@
 		
 		function initializeMap() {
 			var deferred = $q.defer();
-			
+			var timisoara = new google.maps.LatLng(45.746515, 21.227546);
 			setTimeout(function() {
 				deferred.notify('About to map');
 				var mapCanvas = document.getElementById('map');
 				var mapOptions = {
-					center : new google.maps.LatLng(45.746515, 21.227546),
+					center : timisoara,
 					zoom : 12,
 					mapTypeId : google.maps.MapTypeId.ROADMAP
 				}

@@ -18,6 +18,17 @@
 							<option class="airQ-report-select-option" ng-repeat="name in vm.stationNames">{{name}}</option>
 						</select>
 					</div>
+					<div class="col-md-4">
+						<div class="col-md-9">
+						</div>
+						<div class="col-md-3">
+							<a ng-click="vm.printReport()">
+								<ng-md-icon id="print" class="airQ-statisticsIcon-color" icon="print">
+								</ng-md-icon>
+							</a>
+						</div>
+						
+					</div>
 				</div>
 			</div>
 		</div>
